@@ -154,7 +154,7 @@ public class FrmCliente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cadastro Cliente");
+        jLabel1.setText("Clientes");
 
         javax.swing.GroupLayout tabDadosLayout = new javax.swing.GroupLayout(tabDados);
         tabDados.setLayout(tabDadosLayout);
@@ -276,7 +276,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addContainerGap(103, Short.MAX_VALUE))
         );
 
-        tabConsultas.addTab("Consultar Cliente", consulta);
+        tabConsultas.addTab("Consultar", consulta);
 
         dados.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -412,68 +412,30 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dadosLayout.createSequentialGroup()
-                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtcep, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
+                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(20, 20, 20)
                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtcelular)
+                            .addComponent(txtnumero)
                             .addGroup(dadosLayout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel5)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(27, 27, 27)
-                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(24, 24, 24))
                     .addGroup(dadosLayout.createSequentialGroup()
-                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addGroup(dadosLayout.createSequentialGroup()
-                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(dadosLayout.createSequentialGroup()
-                                        .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 802, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnpesquisadados, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel15)
+                        .addContainerGap(1201, Short.MAX_VALUE))
                     .addGroup(dadosLayout.createSequentialGroup()
                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtcpf)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtcep, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtbairro, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dadosLayout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(dadosLayout.createSequentialGroup()
-                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(dadosLayout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(245, 245, 245)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel8))
-                                .addGap(20, 20, 20)
-                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(dadosLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtnumero)
-                                            .addGroup(dadosLayout.createSequentialGroup()
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))))
-                                    .addGroup(dadosLayout.createSequentialGroup()
-                                        .addGap(244, 244, 244)
-                                        .addComponent(jLabel13)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(dadosLayout.createSequentialGroup()
                                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtrg, javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,8 +443,50 @@ public class FrmCliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtcomplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtuf, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(30, 30, 30))
+                                .addComponent(txtuf, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(dadosLayout.createSequentialGroup()
+                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addGroup(dadosLayout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addGap(245, 245, 245)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(264, 264, 264)
+                                        .addComponent(jLabel13)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dadosLayout.createSequentialGroup()
+                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(dadosLayout.createSequentialGroup()
+                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(dadosLayout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(291, 291, 291))
+                                    .addGroup(dadosLayout.createSequentialGroup()
+                                        .addComponent(txtcodigo)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(dadosLayout.createSequentialGroup()
+                                        .addComponent(txtnome)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnpesquisadados, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel3)))
+                            .addGroup(dadosLayout.createSequentialGroup()
+                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtcelular)
+                                    .addGroup(dadosLayout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jLabel5)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(27, 27, 27)
+                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24))))
         );
         dadosLayout.setVerticalGroup(
             dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -499,11 +503,11 @@ public class FrmCliente extends javax.swing.JFrame {
                             .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnpesquisadados, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(dadosLayout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(dadosLayout.createSequentialGroup()
                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -513,18 +517,21 @@ public class FrmCliente extends javax.swing.JFrame {
                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
+                    .addGroup(dadosLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dadosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtcep, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
@@ -544,7 +551,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtrg, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Dados pessoais", dados);
@@ -712,25 +719,6 @@ public class FrmCliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnpesquisadadosActionPerformed
 
-    private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClientesMouseClicked
-        // pega dados
-        tabConsultas.setSelectedIndex(1);
-        txtcodigo.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 0).toString());
-        txtnome.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 1).toString());
-        txtrg.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 2).toString());
-        txtcpf.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 3).toString());
-        txtemail.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 4).toString());
-        txttelefone.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 5).toString());
-        txtcelular.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 6).toString());
-        txtcep.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 7).toString());
-        txtendereco.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 8).toString());
-        txtnumero.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 9).toString());
-        txtcomplemento.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 10).toString());
-        txtbairro.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 11).toString());
-        txtcidade.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 12).toString());
-        txtuf.setSelectedItem(tableClientes.getValueAt(tableClientes.getSelectedRow(), 13).toString());
-    }//GEN-LAST:event_tableClientesMouseClicked
-
     private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
         // limpar campos
         resetCampos();
@@ -811,6 +799,25 @@ public class FrmCliente extends javax.swing.JFrame {
     private void txtcepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcepKeyPressed
         // TODO add your handling code here
     }//GEN-LAST:event_txtcepKeyPressed
+
+    private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClientesMouseClicked
+        // pega dados
+        tabConsultas.setSelectedIndex(1);
+        txtcodigo.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 0).toString());
+        txtnome.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 1).toString());
+        txtrg.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 2).toString());
+        txtcpf.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 3).toString());
+        txtemail.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 4).toString());
+        txttelefone.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 5).toString());
+        txtcelular.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 6).toString());
+        txtcep.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 7).toString());
+        txtendereco.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 8).toString());
+        txtnumero.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 9).toString());
+        txtcomplemento.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 10).toString());
+        txtbairro.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 11).toString());
+        txtcidade.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 12).toString());
+        txtuf.setSelectedItem(tableClientes.getValueAt(tableClientes.getSelectedRow(), 13).toString());
+    }//GEN-LAST:event_tableClientesMouseClicked
 
     /**
      * @param args the command line arguments
