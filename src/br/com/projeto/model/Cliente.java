@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.projeto.dao;
+package br.com.projeto.model;
 
 /**
  *
@@ -24,7 +24,7 @@ public class Cliente {
     private String complemento;
     private String bairro;
     private String cidade;
-    private String uf;
+    private String estado;
     
     
     /*id int auto_increment primary key,;;;
@@ -148,13 +148,11 @@ public class Cliente {
         this.cidade = cidade;
     }
 
-    public String getUf() {
-        return uf;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-    
-    
+    public void setEstado(String uf) {
+        this.estado = uf;
+    }   
 }
