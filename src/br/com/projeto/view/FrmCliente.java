@@ -7,12 +7,42 @@ package br.com.projeto.view;
 
 import br.com.projeto.dao.ClientesDao;
 import br.com.projeto.model.Cliente;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Marcos Lopes G
  */
 public class FrmCliente extends javax.swing.JFrame {
+    
+    public void listar(){
+        ClientesDao dao = new ClientesDao();
+        List<Cliente> lista = dao.listarClientes();
+        
+        DefaultTableModel dados = (DefaultTableModel) tableClientes.getModel();
+        dados.setNumRows(0);
+        
+        for(Cliente c : lista){
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getNome(),
+                c.getRg(),
+                c.getCpf(),
+                c.getEmail(),
+                c.getTelefone(),
+                c.getCelular(),
+                c.getCep(),
+                c.getEndereco(),
+                c.getNumero(),
+                c.getComplemento(),
+                c.getBairro(),
+                c.getCidade(),
+                c.getEstado()
+            });
+        }
+    }
 
     /**
      * Creates new form FrmCliente
@@ -38,7 +68,7 @@ public class FrmCliente extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableClientes = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
@@ -76,11 +106,16 @@ public class FrmCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro Cliente");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 153));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(0));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cadastro Cliente");
 
@@ -89,16 +124,16 @@ public class FrmCliente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jTabbedPane3.setBackground(new java.awt.Color(255, 255, 255));
@@ -112,22 +147,49 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel16.setText("Nome:");
 
+        jTextField9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
+        jButton1.setBackground(new java.awt.Color(0, 51, 153));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton1.setText("Pesquisar");
 
-        jTable1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableClientes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Código", "Nome", "RG", "E-mail", "Telefone", "Celular", "CEP", "Endereço", "Número", "Complemento", "Bairro", "Cidade", "UF"
+                "Código", "Nome", "RG", "CPF", "E-mail", "Telefone", "Celular", "Endereço", "CEP", "Número", "Complemento", "Bairro", "Cidade", "Estado"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableClientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tableClientes.setRowHeight(30);
+        tableClientes.setRowMargin(10);
+        jScrollPane1.setViewportView(tableClientes);
+        if (tableClientes.getColumnModel().getColumnCount() > 0) {
+            tableClientes.getColumnModel().getColumn(0).setResizable(false);
+            tableClientes.getColumnModel().getColumn(1).setResizable(false);
+            tableClientes.getColumnModel().getColumn(2).setResizable(false);
+            tableClientes.getColumnModel().getColumn(3).setResizable(false);
+            tableClientes.getColumnModel().getColumn(4).setResizable(false);
+            tableClientes.getColumnModel().getColumn(5).setResizable(false);
+            tableClientes.getColumnModel().getColumn(6).setResizable(false);
+            tableClientes.getColumnModel().getColumn(7).setResizable(false);
+            tableClientes.getColumnModel().getColumn(8).setResizable(false);
+            tableClientes.getColumnModel().getColumn(9).setResizable(false);
+            tableClientes.getColumnModel().getColumn(10).setResizable(false);
+            tableClientes.getColumnModel().getColumn(11).setResizable(false);
+            tableClientes.getColumnModel().getColumn(12).setResizable(false);
+            tableClientes.getColumnModel().getColumn(13).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -168,8 +230,14 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel2.setText("Código:");
 
+        txtcodigo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
+        txtnome.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel3.setText("Nome:");
+
+        txtemail.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel4.setText("Email:");
@@ -182,6 +250,7 @@ public class FrmCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtcelular.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel6.setText("Telefone:");
@@ -191,12 +260,15 @@ public class FrmCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txttelefone.setToolTipText("");
+        txttelefone.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         try {
             txtcep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##### - ###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtcep.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel7.setText("CEP:");
@@ -204,6 +276,7 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel8.setText("Endereço:");
 
+        txtendereco.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtendereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtenderecoActionPerformed(evt);
@@ -213,12 +286,15 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel9.setText("Número:");
 
+        txtnumero.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel10.setText("Bairro:");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel11.setText("Cidade:");
 
+        txtcidade.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtcidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcidadeActionPerformed(evt);
@@ -228,9 +304,12 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel12.setText("Complemento:");
 
+        txtcomplemento.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel13.setText("UF:");
 
+        txtuf.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtuf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MS", "MG", "SP", "RJ" }));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -241,6 +320,7 @@ public class FrmCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtrg.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel15.setText("CPF:");
@@ -253,6 +333,9 @@ public class FrmCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtcpf.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
+        txtbairro.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -324,7 +407,7 @@ public class FrmCliente extends javax.swing.JFrame {
                                     .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(18, 18, 18)
                                         .addComponent(btnpesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel15)
@@ -343,9 +426,9 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnpesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtnome, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnpesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -361,12 +444,13 @@ public class FrmCliente extends javax.swing.JFrame {
                             .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtcep, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtendereco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -423,38 +507,35 @@ public class FrmCliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnnew, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(415, 415, 415))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane3)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(405, 405, 405)
+                .addComponent(btnnew, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
+                .addComponent(btnsalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
+                .addComponent(btnedit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
+                .addComponent(btnexcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(441, 441, 441))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnedit, btnexcluir, btnnew, btnsalvar});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnsalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                         .addComponent(btnnew, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
+                .addGap(36, 36, 36))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnedit, btnexcluir, btnnew, btnsalvar});
@@ -472,25 +553,62 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
 
-            Cliente obj  = new Cliente();
+            if(
+                txtnome.getText().isEmpty() ||
+                txtrg.getText().isEmpty() ||
+                txtcpf.getText().isEmpty() ||
+                txtemail.getText().isEmpty() ||
+                txttelefone.getText().isEmpty() ||
+                txtcelular.getText().isEmpty() ||
+                txtendereco.getText().isEmpty() ||
+                txtcep.getText().isEmpty() ||
+                txtnumero.getText().isEmpty() ||
+                txtcomplemento.getText().isEmpty() ||
+                txtbairro.getText().isEmpty() ||
+                txtcidade.getText().isEmpty()
+             ){
+                JOptionPane.showMessageDialog(null, "Preencha do(s) campo(s) corretamente!", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            }else{
+                Cliente obj  = new Cliente();
             
-            obj.setNome(txtnome.getText());
-            obj.setRg(txtrg.getText());
-            obj.setCpf(txtcpf.getText());
-            obj.setEmail(txtemail.getText());
-            obj.setTelefone(txttelefone.getText());
-            obj.setCelular(txtcelular.getText());
-            obj.setEndereco(txtendereco.getText());
-            obj.setCep(txtcep.getText());
-            obj.setNumero(Integer.parseInt(txtnumero.getText()));
-            obj.setComplemento(txtcomplemento.getText());
-            obj.setBairro(txtbairro.getText());
-            obj.setCidade(txtcidade.getText());
-            obj.setEstado(txtuf.getSelectedItem().toString());
-            
-            ClientesDao dao = new ClientesDao();
-            dao.save(obj); 
+                obj.setNome(txtnome.getText());
+                obj.setRg(txtrg.getText());
+                obj.setCpf(txtcpf.getText());
+                obj.setEmail(txtemail.getText());
+                obj.setTelefone(txttelefone.getText());
+                obj.setCelular(txtcelular.getText());
+                obj.setEndereco(txtendereco.getText());
+                obj.setCep(txtcep.getText());
+                obj.setNumero(Integer.parseInt(txtnumero.getText()));
+                obj.setComplemento(txtcomplemento.getText());
+                obj.setBairro(txtbairro.getText());
+                obj.setCidade(txtcidade.getText());
+                obj.setEstado(txtuf.getSelectedItem().toString());
+                
+                ClientesDao dao = new ClientesDao();
+                dao.save(obj); 
+                
+                // Limpar campos
+
+                txtnome.setText("");
+                txtrg.setText("");
+                txtcpf.setText("");
+                txtemail.setText("");
+                txttelefone.setText("");
+                txtcelular.setText("");
+                txtendereco.setText("");
+                txtcep.setText("");
+                txtnumero.setText("");
+                txtcomplemento.setText("");
+                txtbairro.setText("");
+                txtcidade.setText("");
+            }
     }//GEN-LAST:event_btnsalvarActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // carregar clientes
+        listar();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -555,8 +673,8 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tableClientes;
     private javax.swing.JTextField txtbairro;
     private javax.swing.JFormattedTextField txtcelular;
     private javax.swing.JFormattedTextField txtcep;
