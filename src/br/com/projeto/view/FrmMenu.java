@@ -194,7 +194,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu7);
 
         menuTrocarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/configuracoes.png"))); // NOI18N
-        menuTrocarusuario.setText("Configurações");
+        menuTrocarusuario.setText("Trocar Usuário");
         menuTrocarusuario.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         menuTrocarusuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

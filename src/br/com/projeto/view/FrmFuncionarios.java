@@ -678,7 +678,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClientesMouseClicked
         // pega dados
-        tabConsultas.setSelectedIndex(1);
+        tabConsultas.setSelectedIndex(0);
         txtcodigo.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 0).toString());
         txtnome.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 1).toString());
         txtrg.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 2).toString());

@@ -1,4 +1,4 @@
-/*
+setSelectedIndex/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -779,7 +779,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
 
     private void tableFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableFornecedorMouseClicked
         // pega dados
-        tabConsultas.setSelectedIndex(1);
+        tabConsultas.setSelectedIndex(0);
         txtcodigo.setText(tableFornecedor.getValueAt(tableFornecedor.getSelectedRow(), 0).toString());
         txtnome.setText(tableFornecedor.getValueAt(tableFornecedor.getSelectedRow(), 1).toString());
         txtcnpj.setText(tableFornecedor.getValueAt(tableFornecedor.getSelectedRow(), 2).toString());
