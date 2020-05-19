@@ -100,12 +100,6 @@ public class FrmCliente extends javax.swing.JFrame {
         tabDados = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tabConsultas = new javax.swing.JTabbedPane();
-        consulta = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        txtConsulta = new javax.swing.JTextField();
-        btnConsulta = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableClientes = new javax.swing.JTable();
         dados = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
@@ -122,7 +116,6 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtendereco = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtnumero = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtcidade = new javax.swing.JTextField();
@@ -136,13 +129,20 @@ public class FrmCliente extends javax.swing.JFrame {
         btnpesquisadados = new javax.swing.JButton();
         txtcpf = new javax.swing.JFormattedTextField();
         txtbairro = new javax.swing.JTextField();
+        txtnumero = new javax.swing.JFormattedTextField();
+        consulta = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        txtConsulta = new javax.swing.JTextField();
+        btnConsulta = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableClientes = new javax.swing.JTable();
         btnsalvar = new javax.swing.JButton();
         btnedit = new javax.swing.JButton();
         btnreset = new javax.swing.JButton();
         btnexcluir1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro Cliente");
+        setTitle("Clientes");
         setBackground(new java.awt.Color(255, 255, 255));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -151,10 +151,10 @@ public class FrmCliente extends javax.swing.JFrame {
         });
 
         tabDados.setBackground(new java.awt.Color(0, 51, 153));
-        tabDados.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes.png"))); // NOI18N
         jLabel1.setText("Clientes");
 
         javax.swing.GroupLayout tabDadosLayout = new javax.swing.GroupLayout(tabDados);
@@ -169,7 +169,7 @@ public class FrmCliente extends javax.swing.JFrame {
         tabDadosLayout.setVerticalGroup(
             tabDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDadosLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(25, 25, 25))
         );
@@ -180,104 +180,6 @@ public class FrmCliente extends javax.swing.JFrame {
         tabConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tabConsultas.setFocusable(false);
         tabConsultas.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-
-        consulta.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel16.setText("Nome:");
-
-        txtConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtConsulta.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtConsultaKeyPressed(evt);
-            }
-        });
-
-        btnConsulta.setBackground(new java.awt.Color(0, 51, 153));
-        btnConsulta.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        btnConsulta.setText("Pesquisar");
-        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultaActionPerformed(evt);
-            }
-        });
-
-        tableClientes.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        tableClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Código", "Nome", "RG", "CPF", "E-mail", "Telefone", "Celular", "Endereço", "CEP", "Número", "Complemento", "Bairro", "Cidade", "Estado"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tableClientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        tableClientes.setRowHeight(30);
-        tableClientes.setRowMargin(10);
-        tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableClientesMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tableClientes);
-        if (tableClientes.getColumnModel().getColumnCount() > 0) {
-            tableClientes.getColumnModel().getColumn(0).setResizable(false);
-            tableClientes.getColumnModel().getColumn(1).setResizable(false);
-            tableClientes.getColumnModel().getColumn(2).setResizable(false);
-            tableClientes.getColumnModel().getColumn(3).setResizable(false);
-            tableClientes.getColumnModel().getColumn(4).setResizable(false);
-            tableClientes.getColumnModel().getColumn(5).setResizable(false);
-            tableClientes.getColumnModel().getColumn(6).setResizable(false);
-            tableClientes.getColumnModel().getColumn(7).setResizable(false);
-            tableClientes.getColumnModel().getColumn(8).setResizable(false);
-            tableClientes.getColumnModel().getColumn(9).setResizable(false);
-            tableClientes.getColumnModel().getColumn(10).setResizable(false);
-            tableClientes.getColumnModel().getColumn(11).setResizable(false);
-            tableClientes.getColumnModel().getColumn(12).setResizable(false);
-            tableClientes.getColumnModel().getColumn(13).setResizable(false);
-        }
-
-        javax.swing.GroupLayout consultaLayout = new javax.swing.GroupLayout(consulta);
-        consulta.setLayout(consultaLayout);
-        consultaLayout.setHorizontalGroup(
-            consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(consultaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1236, Short.MAX_VALUE)
-                    .addGroup(consultaLayout.createSequentialGroup()
-                        .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addGroup(consultaLayout.createSequentialGroup()
-                                .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        consultaLayout.setVerticalGroup(
-            consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(consultaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
-
-        tabConsultas.addTab("Consultar", consulta);
 
         dados.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -348,8 +250,6 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel9.setText("Número:");
 
-        txtnumero.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel10.setText("Bairro:");
 
@@ -405,6 +305,13 @@ public class FrmCliente extends javax.swing.JFrame {
 
         txtbairro.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
+        txtnumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtnumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnumeroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout dadosLayout = new javax.swing.GroupLayout(dados);
         dados.setLayout(dadosLayout);
         dadosLayout.setHorizontalGroup(
@@ -427,10 +334,10 @@ public class FrmCliente extends javax.swing.JFrame {
                                     .addComponent(jLabel8))
                                 .addGap(20, 20, 20)
                                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtnumero)
                                     .addGroup(dadosLayout.createSequentialGroup()
                                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtnumero)))
                             .addGroup(dadosLayout.createSequentialGroup()
                                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtcpf)
@@ -551,10 +458,108 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtrg, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Dados pessoais", dados);
+
+        consulta.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel16.setText("Nome:");
+
+        txtConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtConsulta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtConsultaKeyPressed(evt);
+            }
+        });
+
+        btnConsulta.setBackground(new java.awt.Color(0, 51, 153));
+        btnConsulta.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        btnConsulta.setText("Pesquisar");
+        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaActionPerformed(evt);
+            }
+        });
+
+        tableClientes.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        tableClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Código", "Nome", "RG", "CPF", "E-mail", "Telefone", "Celular", "Endereço", "CEP", "Número", "Complemento", "Bairro", "Cidade", "Estado"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableClientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tableClientes.setRowHeight(30);
+        tableClientes.setRowMargin(10);
+        tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableClientesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableClientes);
+        if (tableClientes.getColumnModel().getColumnCount() > 0) {
+            tableClientes.getColumnModel().getColumn(0).setResizable(false);
+            tableClientes.getColumnModel().getColumn(1).setResizable(false);
+            tableClientes.getColumnModel().getColumn(2).setResizable(false);
+            tableClientes.getColumnModel().getColumn(3).setResizable(false);
+            tableClientes.getColumnModel().getColumn(4).setResizable(false);
+            tableClientes.getColumnModel().getColumn(5).setResizable(false);
+            tableClientes.getColumnModel().getColumn(6).setResizable(false);
+            tableClientes.getColumnModel().getColumn(7).setResizable(false);
+            tableClientes.getColumnModel().getColumn(8).setResizable(false);
+            tableClientes.getColumnModel().getColumn(9).setResizable(false);
+            tableClientes.getColumnModel().getColumn(10).setResizable(false);
+            tableClientes.getColumnModel().getColumn(11).setResizable(false);
+            tableClientes.getColumnModel().getColumn(12).setResizable(false);
+            tableClientes.getColumnModel().getColumn(13).setResizable(false);
+        }
+
+        javax.swing.GroupLayout consultaLayout = new javax.swing.GroupLayout(consulta);
+        consulta.setLayout(consultaLayout);
+        consultaLayout.setHorizontalGroup(
+            consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1236, Short.MAX_VALUE)
+                    .addGroup(consultaLayout.createSequentialGroup()
+                        .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addGroup(consultaLayout.createSequentialGroup()
+                                .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        consultaLayout.setVerticalGroup(
+            consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
+        );
+
+        tabConsultas.addTab("Consultar", consulta);
 
         btnsalvar.setBackground(new java.awt.Color(0, 51, 153));
         btnsalvar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -617,9 +622,9 @@ public class FrmCliente extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tabDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tabConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+                .addComponent(tabDados, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tabConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -819,6 +824,10 @@ public class FrmCliente extends javax.swing.JFrame {
         txtuf.setSelectedItem(tableClientes.getValueAt(tableClientes.getSelectedRow(), 13).toString());
     }//GEN-LAST:event_tableClientesMouseClicked
 
+    private void txtnumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnumeroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -894,7 +903,7 @@ public class FrmCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtendereco;
     private javax.swing.JTextField txtnome;
-    private javax.swing.JTextField txtnumero;
+    private javax.swing.JFormattedTextField txtnumero;
     private javax.swing.JFormattedTextField txtrg;
     private javax.swing.JFormattedTextField txttelefone;
     private javax.swing.JComboBox<String> txtuf;
