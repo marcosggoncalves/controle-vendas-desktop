@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -50,15 +50,15 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="tabDados2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tabConsultas" min="-2" pref="558" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <Component id="tabConsultas" min="-2" pref="597" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnsalvar" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btnedit" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btnexcluir1" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btnreset1" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="75" max="32767" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -100,7 +100,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="0"/>
+              <Font name="Arial" size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -172,7 +172,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="366" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="97" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -424,7 +424,7 @@
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Component id="jLabel17" min="-2" pref="107" max="-2" attributes="0"/>
                                                           <Component id="txtcomplemento" min="-2" pref="347" max="-2" attributes="0"/>
-                                                          <Component id="txtsenha" min="-2" pref="347" max="-2" attributes="0"/>
+                                                          <Component id="txtsenha1" min="-2" pref="347" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
@@ -580,7 +580,7 @@
                                       <Component id="txtcpf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="txtrg" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="txtsenha" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="txtsenha1" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="txtcargo" alignment="1" min="-2" pref="35" max="-2" attributes="0"/>
@@ -589,7 +589,7 @@
                       <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtNivel" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="89" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -889,9 +889,9 @@
                 <Property name="text" type="java.lang.String" value="Senha:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="txtsenha">
+            <Component class="javax.swing.JPasswordField" name="txtsenha1">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtsenhaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtsenha1ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtcargo">

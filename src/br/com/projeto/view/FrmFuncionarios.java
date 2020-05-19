@@ -22,6 +22,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
      */
     public FrmFuncionarios() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH); 
     }
     
     public void listar() {
@@ -47,9 +48,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 c.getBairro(),
                 c.getCidade(),
                 c.getEstado(),
-                c.getCargo(),
+                c.getSenha(),
                 c.getNivel_acesso(),
-                c.getSenha()
+                c.getCargo()
             });
         }
     }
@@ -139,7 +140,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtcomplemento = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtsenha = new javax.swing.JPasswordField();
+        txtsenha1 = new javax.swing.JPasswordField();
         txtcargo = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -149,7 +150,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         btnexcluir1 = new javax.swing.JButton();
         btnreset1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -159,7 +160,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         tabDados2.setBackground(new java.awt.Color(0, 51, 153));
         tabDados2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Funcionários");
 
@@ -261,7 +262,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                     .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 58, Short.MAX_VALUE))
+                .addGap(0, 97, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Consultas", consulta);
@@ -395,9 +396,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel1.setText("Senha:");
 
-        txtsenha.addActionListener(new java.awt.event.ActionListener() {
+        txtsenha1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtsenhaActionPerformed(evt);
+                txtsenha1ActionPerformed(evt);
             }
         });
 
@@ -465,7 +466,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                                                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(txtcomplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addComponent(txtsenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtcargo)
@@ -576,13 +577,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                             .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtrg, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtsenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtcargo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Dados Pessoais", dados);
@@ -650,14 +651,14 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(tabDados2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addComponent(tabConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnexcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnreset1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -694,7 +695,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtbairro.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 11).toString());
         txtcidade.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 12).toString());
         txtuf.setSelectedItem(tableClientes.getValueAt(tableClientes.getSelectedRow(), 13).toString());
-        txtsenha.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 14).toString());
+        txtsenha1.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 14).toString());
         txtcargo.setText(tableClientes.getValueAt(tableClientes.getSelectedRow(), 15).toString());
         txtNivel.setSelectedItem(tableClientes.getValueAt(tableClientes.getSelectedRow(), 16).toString());
     }//GEN-LAST:event_tableClientesMouseClicked
@@ -728,7 +729,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 txtuf.setSelectedItem(obj.getEstado());
                 txtcargo.setText(obj.getCargo());
                 txtNivel.setSelectedItem(obj.getNivel_acesso());
-                txtsenha.setText(obj.getSenha());
+                txtsenha1.setText(obj.getSenha());
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Cadastro do cliente não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
@@ -747,9 +748,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcidadeActionPerformed
 
-    private void txtsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsenhaActionPerformed
+    private void txtsenha1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsenha1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtsenhaActionPerformed
+    }//GEN-LAST:event_txtsenha1ActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
 
@@ -784,7 +785,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             obj.setEstado(txtuf.getSelectedItem().toString());
             obj.setNivel_acesso(txtNivel.getSelectedItem().toString());
             obj.setCargo(txtcargo.getText());
-            obj.setSenha(txtsenha.getText());
+            obj.setSenha(String.valueOf(txtsenha1.getPassword()));
 
             FuncionarioDao dao = new FuncionarioDao();
             dao.save(obj);
@@ -832,7 +833,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             obj.setEstado(txtuf.getSelectedItem().toString());
             obj.setNivel_acesso(txtNivel.getSelectedItem().toString());
             obj.setCargo(txtcargo.getText());
-            obj.setSenha(txtsenha.getText());
+            obj.setSenha(txtsenha1.getText());
 
             FuncionarioDao dao = new FuncionarioDao();
             dao.edit(obj);
@@ -949,7 +950,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtnome;
     private javax.swing.JTextField txtnumero;
     private javax.swing.JFormattedTextField txtrg;
-    private javax.swing.JPasswordField txtsenha;
+    private javax.swing.JPasswordField txtsenha1;
     private javax.swing.JFormattedTextField txttelefone;
     private javax.swing.JComboBox<String> txtuf;
     // End of variables declaration//GEN-END:variables
