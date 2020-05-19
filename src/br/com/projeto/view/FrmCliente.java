@@ -150,7 +150,7 @@ public class FrmCliente extends javax.swing.JFrame {
             }
         });
 
-        tabDados.setBackground(new java.awt.Color(0, 51, 153));
+        tabDados.setBackground(new java.awt.Color(0, 102, 153));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

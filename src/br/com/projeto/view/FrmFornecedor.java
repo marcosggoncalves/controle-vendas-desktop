@@ -1,4 +1,5 @@
-setSelectedIndex/*
+
+/*setSelectedIndex/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -145,7 +146,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
             }
         });
 
-        tabDados.setBackground(new java.awt.Color(0, 51, 153));
+        tabDados.setBackground(new java.awt.Color(0, 102, 153));
         tabDados.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

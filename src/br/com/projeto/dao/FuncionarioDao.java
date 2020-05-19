@@ -7,6 +7,7 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Funcionario;
+import br.com.projeto.view.FrmLogin;
 import br.com.projeto.view.FrmMenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -271,6 +272,7 @@ public class FuncionarioDao {
                 tela.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Dados fornecido estão incorretos, tente novamente !");
+                new FrmLogin().setVisible(true);
             }
             
         } catch (SQLException e) {

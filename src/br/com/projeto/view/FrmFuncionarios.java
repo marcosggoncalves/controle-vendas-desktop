@@ -158,7 +158,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        tabDados2.setBackground(new java.awt.Color(0, 51, 153));
+        tabDados2.setBackground(new java.awt.Color(0, 102, 153));
         tabDados2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
