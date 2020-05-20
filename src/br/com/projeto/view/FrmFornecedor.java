@@ -120,7 +120,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         txtcomplemento = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        txtuf = new javax.swing.JComboBox<>();
+        txtuf = new javax.swing.JComboBox<String>();
         CNPJ = new javax.swing.JLabel();
         btnpesquisadados = new javax.swing.JButton();
         txtcnpj = new javax.swing.JFormattedTextField();
@@ -151,7 +151,6 @@ public class FrmFornecedor extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fornecedor.png"))); // NOI18N
         jLabel1.setText("Fornecedores");
 
         javax.swing.GroupLayout tabDadosLayout = new javax.swing.GroupLayout(tabDados);
@@ -166,7 +165,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
         tabDadosLayout.setVerticalGroup(
             tabDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDadosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(25, 25, 25))
         );
@@ -269,7 +268,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
         jLabel13.setText("UF:");
 
         txtuf.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtuf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        txtuf.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         CNPJ.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         CNPJ.setText("CNPJ:");
@@ -597,7 +596,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tabDados, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(tabConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
                 .addGap(27, 27, 27)

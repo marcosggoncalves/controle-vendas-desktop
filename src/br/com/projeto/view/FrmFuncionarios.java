@@ -105,7 +105,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         tabConsultas = new javax.swing.JTabbedPane();
         dados = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        txtuf = new javax.swing.JComboBox<>();
+        txtuf = new javax.swing.JComboBox<String>();
         txtcodigo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txtnome = new javax.swing.JTextField();
@@ -137,7 +137,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtcargo = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        txtNivel = new javax.swing.JComboBox<>();
+        txtNivel = new javax.swing.JComboBox<String>();
         txtnumero = new javax.swing.JFormattedTextField();
         consulta = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -163,7 +163,6 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionarios.png"))); // NOI18N
         jLabel3.setText("Funcionários");
 
         javax.swing.GroupLayout tabDados2Layout = new javax.swing.GroupLayout(tabDados2);
@@ -178,7 +177,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         tabDados2Layout.setVerticalGroup(
             tabDados2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDados2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(25, 25, 25))
         );
@@ -193,7 +192,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jLabel13.setText("UF:");
 
         txtuf.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtuf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        txtuf.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         txtcodigo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtcodigo.setEnabled(false);
@@ -329,7 +328,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jLabel19.setText("Nivel de acesso:");
 
         txtNivel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuário", "Administrador" }));
+        txtNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuário", "Administrador" }));
 
         javax.swing.GroupLayout dadosLayout = new javax.swing.GroupLayout(dados);
         dados.setLayout(dadosLayout);
@@ -647,7 +646,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tabDados2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabDados2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabConsultas)
                 .addGap(18, 18, 18)
