@@ -64,6 +64,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        menuProdutos = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -72,7 +73,7 @@ public class FrmMenu extends javax.swing.JFrame {
         menuExit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Painel");
+        setTitle("Painel - Controle de produtos");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -116,8 +117,6 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        painel_desktop.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout painel_desktopLayout = new javax.swing.GroupLayout(painel_desktop);
         painel_desktop.setLayout(painel_desktopLayout);
         painel_desktopLayout.setHorizontalGroup(
@@ -132,6 +131,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(0, 434, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+        painel_desktop.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenuBar1.setBackground(new java.awt.Color(0, 51, 153));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(873, 70));
@@ -166,7 +166,7 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos.png"))); // NOI18N
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/eq.png"))); // NOI18N
         jMenu4.setText("Produtos");
         jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
@@ -176,9 +176,17 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem5.setText("Consulta Produtos");
         jMenu4.add(jMenuItem5);
 
+        menuProdutos.setText("Produtos");
+        menuProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProdutosActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menuProdutos);
+
         jMenuBar1.add(jMenu4);
 
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vendas.png"))); // NOI18N
+        jMenu7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marcos\\Downloads\\controle-vendas-java\\src\\imagens\\vd.png")); // NOI18N
         jMenu7.setText("Vendas");
         jMenu7.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
 
@@ -193,7 +201,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        menuTrocarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/configuracoes.png"))); // NOI18N
+        menuTrocarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/lg.png"))); // NOI18N
         menuTrocarusuario.setText("Trocar Usuário");
         menuTrocarusuario.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         menuTrocarusuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -203,7 +211,7 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuTrocarusuario);
 
-        menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair.png"))); // NOI18N
+        menuExit.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marcos\\Downloads\\controle-vendas-java\\src\\imagens\\sr.png")); // NOI18N
         menuExit.setText("Sair");
         menuExit.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
         menuExit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -274,6 +282,11 @@ public class FrmMenu extends javax.swing.JFrame {
         new FrmFornecedor().setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
 
+    private void menuProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProdutosActionPerformed
+        // TODO add your handling code here:
+        new FrmProduto().setVisible(true);
+    }//GEN-LAST:event_menuProdutosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -326,6 +339,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu menuClientes;
     private javax.swing.JMenu menuExit;
     private javax.swing.JMenu menuFuncionarios;
+    private javax.swing.JMenuItem menuProdutos;
     private javax.swing.JMenu menuTrocarusuario;
     private javax.swing.JDesktopPane painel_desktop;
     // End of variables declaration//GEN-END:variables
