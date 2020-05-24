@@ -53,9 +53,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="tabDados" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-              <Component id="tabConsultas" pref="687" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="tabConsultas" pref="691" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnsalvar" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="btnedit" min="-2" pref="32" max="-2" attributes="0"/>
@@ -71,7 +71,7 @@
     <Container class="javax.swing.JPanel" name="tabDados">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="66" red="0" type="rgb"/>
+          <Color blue="4d" green="8e" red="3d" type="rgb"/>
         </Property>
       </Properties>
 
@@ -336,7 +336,7 @@
                           <Component id="txtcpf" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="txtrg" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="291" max="32767" attributes="0"/>
+                      <EmptySpace pref="289" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -677,9 +677,9 @@
                           <Component id="txtConsulta" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="btnConsulta" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="111" max="32767" attributes="0"/>
+                      <EmptySpace pref="109" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

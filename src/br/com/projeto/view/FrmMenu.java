@@ -87,10 +87,12 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel1.setText("Usuário Logado: ");
 
         LT_usuario.setBackground(new java.awt.Color(0, 51, 153));
-        LT_usuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        LT_usuario.setForeground(new java.awt.Color(0, 51, 153));
+        LT_usuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        LT_usuario.setForeground(new java.awt.Color(61, 142, 77));
         LT_usuario.setText("Marcos Lopes");
 
+        horarioLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        horarioLabel.setForeground(new java.awt.Color(61, 142, 77));
         horarioLabel.setText("Horário: 18/05/2020");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -117,13 +119,15 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        painel_desktop.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout painel_desktopLayout = new javax.swing.GroupLayout(painel_desktop);
         painel_desktop.setLayout(painel_desktopLayout);
         painel_desktopLayout.setHorizontalGroup(
             painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel_desktopLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 527, Short.MAX_VALUE))
+                .addGap(0, 512, Short.MAX_VALUE))
         );
         painel_desktopLayout.setVerticalGroup(
             painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,14 +135,17 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(0, 434, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        painel_desktop.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenuBar1.setBackground(new java.awt.Color(0, 51, 153));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(873, 70));
 
+        menuClientes.setBorder(null);
+        menuClientes.setForeground(new java.awt.Color(61, 142, 77));
         menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes.png"))); // NOI18N
         menuClientes.setText("Clientes");
-        menuClientes.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        menuClientes.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        menuClientes.setIconTextGap(6);
+        menuClientes.setMargin(null);
         menuClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuClientesMouseClicked(evt);
@@ -146,9 +153,13 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuClientes);
 
+        menuFuncionarios.setBorder(null);
+        menuFuncionarios.setForeground(new java.awt.Color(61, 142, 77));
         menuFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionarios.png"))); // NOI18N
         menuFuncionarios.setText("Funcionários");
-        menuFuncionarios.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        menuFuncionarios.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        menuFuncionarios.setIconTextGap(6);
+        menuFuncionarios.setMargin(null);
         menuFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuFuncionariosMouseClicked(evt);
@@ -156,9 +167,13 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuFuncionarios);
 
+        jMenu3.setBorder(null);
+        jMenu3.setForeground(new java.awt.Color(61, 142, 77));
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fornecedor.png"))); // NOI18N
         jMenu3.setText("Fornecedores");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenu3.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        jMenu3.setIconTextGap(6);
+        jMenu3.setMargin(null);
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
@@ -166,9 +181,13 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setBorder(null);
+        jMenu4.setForeground(new java.awt.Color(61, 142, 77));
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/eq.png"))); // NOI18N
         jMenu4.setText("Produtos");
-        jMenu4.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenu4.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        jMenu4.setIconTextGap(6);
+        jMenu4.setMargin(null);
 
         jMenuItem4.setText("Controle de Estoque");
         jMenu4.add(jMenuItem4);
@@ -186,9 +205,13 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marcos\\Downloads\\controle-vendas-java\\src\\imagens\\vd.png")); // NOI18N
+        jMenu7.setBorder(null);
+        jMenu7.setForeground(new java.awt.Color(61, 142, 77));
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vd.png"))); // NOI18N
         jMenu7.setText("Vendas");
-        jMenu7.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenu7.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        jMenu7.setIconTextGap(6);
+        jMenu7.setMargin(null);
 
         jMenuItem7.setText("Abrir PDV");
         jMenu7.add(jMenuItem7);
@@ -201,9 +224,13 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
+        menuTrocarusuario.setBorder(null);
+        menuTrocarusuario.setForeground(new java.awt.Color(61, 142, 77));
         menuTrocarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/lg.png"))); // NOI18N
         menuTrocarusuario.setText("Trocar Usuário");
-        menuTrocarusuario.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        menuTrocarusuario.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        menuTrocarusuario.setIconTextGap(6);
+        menuTrocarusuario.setMargin(null);
         menuTrocarusuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuTrocarusuarioMouseClicked(evt);
@@ -211,9 +238,13 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         jMenuBar1.add(menuTrocarusuario);
 
-        menuExit.setIcon(new javax.swing.ImageIcon("C:\\Users\\Marcos\\Downloads\\controle-vendas-java\\src\\imagens\\sr.png")); // NOI18N
+        menuExit.setBorder(null);
+        menuExit.setForeground(new java.awt.Color(61, 142, 77));
+        menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sr.png"))); // NOI18N
         menuExit.setText("Sair");
-        menuExit.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        menuExit.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+        menuExit.setIconTextGap(6);
+        menuExit.setMargin(null);
         menuExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuExitMouseClicked(evt);

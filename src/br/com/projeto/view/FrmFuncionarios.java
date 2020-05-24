@@ -105,7 +105,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         tabConsultas = new javax.swing.JTabbedPane();
         dados = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        txtuf = new javax.swing.JComboBox<String>();
+        txtuf = new javax.swing.JComboBox<>();
         txtcodigo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txtnome = new javax.swing.JTextField();
@@ -137,7 +137,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtcargo = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        txtNivel = new javax.swing.JComboBox<String>();
+        txtNivel = new javax.swing.JComboBox<>();
         txtnumero = new javax.swing.JFormattedTextField();
         consulta = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -158,8 +158,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        tabDados2.setBackground(new java.awt.Color(0, 102, 153));
-        tabDados2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tabDados2.setBackground(new java.awt.Color(61, 142, 77));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -192,7 +191,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jLabel13.setText("UF:");
 
         txtuf.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtuf.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        txtuf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         txtcodigo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtcodigo.setEnabled(false);
@@ -327,7 +326,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jLabel19.setText("Nivel de acesso:");
 
         txtNivel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuário", "Administrador" }));
+        txtNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuário", "Administrador" }));
 
         javax.swing.GroupLayout dadosLayout = new javax.swing.GroupLayout(dados);
         dados.setLayout(dadosLayout);
@@ -500,7 +499,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Dados Pessoais", dados);
@@ -581,7 +580,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                     .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 102, Short.MAX_VALUE))
+                .addGap(0, 113, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Consultar", consulta);
@@ -646,7 +645,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addComponent(tabDados2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tabConsultas)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)

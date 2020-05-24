@@ -14,12 +14,22 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menuClientes">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="8e" red="3d" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens/clientes.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Clientes"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="17" style="0"/>
+              <Font name="Arial" size="17" style="0"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="6"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="null"/>
             </Property>
           </Properties>
           <Events>
@@ -28,12 +38,22 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuFuncionarios">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="8e" red="3d" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens/funcionarios.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="17" style="0"/>
+              <Font name="Arial" size="17" style="0"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="6"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="null"/>
             </Property>
           </Properties>
           <Events>
@@ -42,12 +62,22 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="8e" red="3d" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens/fornecedor.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fornecedores"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="17" style="0"/>
+              <Font name="Arial" size="17" style="0"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="6"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="null"/>
             </Property>
           </Properties>
           <Events>
@@ -56,12 +86,22 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="8e" red="3d" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens/eq.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Produtos"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="17" style="0"/>
+              <Font name="Arial" size="17" style="0"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="6"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="null"/>
             </Property>
           </Properties>
           <SubComponents>
@@ -87,12 +127,22 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu7">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="8e" red="3d" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Marcos\Downloads\controle-vendas-java\src\imagens\vd.png"/>
+              <Image iconType="3" name="/imagens/vd.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Vendas"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="17" style="0"/>
+              <Font name="Arial" size="17" style="0"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="6"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="null"/>
             </Property>
           </Properties>
           <SubComponents>
@@ -115,12 +165,22 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuTrocarusuario">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="8e" red="3d" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagens/lg.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Trocar Usu&#xe1;rio"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="17" style="0"/>
+              <Font name="Arial" size="17" style="0"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="6"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="null"/>
             </Property>
           </Properties>
           <Events>
@@ -129,12 +189,22 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuExit">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="8e" red="3d" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Marcos\Downloads\controle-vendas-java\src\imagens\sr.png"/>
+              <Image iconType="3" name="/imagens/sr.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="17" style="0"/>
+              <Font name="Arial" size="17" style="0"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="6"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="null"/>
             </Property>
           </Properties>
           <Events>
@@ -193,7 +263,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="527" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="512" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -260,16 +330,22 @@
                   <Color blue="99" green="33" red="0" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="1"/>
+                  <Font name="Arial" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="33" red="0" type="rgb"/>
+                  <Color blue="4d" green="8e" red="3d" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Marcos Lopes"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="horarioLabel">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="14" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="4d" green="8e" red="3d" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Hor&#xe1;rio: 18/05/2020"/>
               </Properties>
             </Component>
