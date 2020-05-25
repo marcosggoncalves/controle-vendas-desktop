@@ -8,6 +8,7 @@ package br.com.projeto.view;
 import br.com.projeto.dao.ClienteDao;
 import br.com.projeto.model.Cliente;
 import br.com.projeto.model.Utilitarios;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -813,6 +814,16 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void txtcepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcepKeyPressed
         // TODO add your handling code here
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
+         Cliente obj =  new Cliente();
+         ClienteDao dao = new ClienteDao();
+         obj = dao.buscaCep(txtcep.getText());
+
+         txtendereco.setText(obj.getEndereco());
+         txtbairro.setText(obj.getBairro());
+         txtcidade.setText(obj.getCidade());
+         txtuf.setSelectedItem(obj.getEstado());                   
+     }
     }//GEN-LAST:event_txtcepKeyPressed
 
     private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableClientesMouseClicked
