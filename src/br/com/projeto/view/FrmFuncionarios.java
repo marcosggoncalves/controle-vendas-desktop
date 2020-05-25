@@ -842,7 +842,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             obj.setEstado(txtuf.getSelectedItem().toString());
             obj.setNivel_acesso(txtNivel.getSelectedItem().toString());
             obj.setCargo(txtcargo.getText());
-            obj.setSenha(txtsenha1.getText());
+            obj.setSenha(String.valueOf(txtsenha1.getPassword()));
 
             FuncionarioDao dao = new FuncionarioDao();
             dao.edit(obj);

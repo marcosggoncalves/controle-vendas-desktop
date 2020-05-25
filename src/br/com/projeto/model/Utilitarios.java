@@ -49,8 +49,8 @@ public class Utilitarios {
     }
 
     public void alert(String titulo, String message) {
-        ImageIcon icon = new ImageIcon("src/imagens/logado.png");
-        JOptionPane.showMessageDialog(null, message, titulo, JOptionPane.PLAIN_MESSAGE, icon);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagens/logado.png"));
+        JOptionPane.showMessageDialog(null, message, titulo, JOptionPane.INFORMATION_MESSAGE, icon);
     }
 
     public void btnsColor(JTabbedPane tabConsulta) {
