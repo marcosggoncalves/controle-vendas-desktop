@@ -7,16 +7,15 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Funcionario;
+import br.com.projeto.model.Utilitarios;
 import br.com.projeto.view.FrmLogin;
 import br.com.projeto.view.FrmMenu;
-import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,8 +30,8 @@ public class FuncionarioDao {
     }
 
     public void save(Funcionario obj) {
-        try {
-
+        Utilitarios util = new Utilitarios();  
+        try{
             String sqlExist = "select*from tb_funcionarios where cpf = ?  limit 1";
 
             PreparedStatement stmtExist = con.prepareStatement(sqlExist);
@@ -41,7 +40,7 @@ public class FuncionarioDao {
             ResultSet cadastroExist = stmtExist.executeQuery();
 
             if (cadastroExist.next()) {
-                JOptionPane.showMessageDialog(null, "Cadastro já existe em nossa base de dados !");
+                util.alert("Sistema de controle PDV - Atenção", "Cadastro já existe em nossa base de dados !");
             } else {
                 String sql = "insert into tb_funcionarios (nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado, senha, nivel_acesso, cargo)"
                         + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -68,15 +67,16 @@ public class FuncionarioDao {
                 stmt.execute();
                 stmt.close();
 
-                JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso !");
+                util.alert("Sistema de controle PDV - Atenção", "Cadastro realizado com sucesso !");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar cadastro, erro encontrado:" + e);
         }
     }
 
     public void edit(Funcionario obj) {
-        try {
+        Utilitarios util = new Utilitarios();
+        try{
             String sql = "update tb_funcionarios set nome =?, rg =?, cpf =?, email =?, telefone =?, celular =?, "
                     + "cep =?, endereco =?, numero =?, complemento =?, bairro =?, cidade =?, estado =?, senha=?, nivel_acesso=?, cargo=? where id =?";
 
@@ -103,15 +103,17 @@ public class FuncionarioDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso !");
+            util.alert("Sistema de controle PDV - Atenção", "Cadastro alterado com sucesso !");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel alterar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel alterar cadastro, erro encontrado:" + e);
         }
     }
 
     public void delete(Funcionario obj) {
-        try {
+        Utilitarios util = new Utilitarios();
+        
+        try{
 
             String sql = "delete from tb_funcionarios where id = ?";
 
@@ -122,15 +124,17 @@ public class FuncionarioDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Cadastro excluido com sucesso!");
+            util.alert("Sistema de controle PDV - Atenção", "Cadastro excluido com sucesso!");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar exclusão do cadastro, erro encontrado:" + e);
+           util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar exclusão do cadastro, erro encontrado:" + e);
         }
     }
 
     public List<Funcionario> listarFuncionarios() {
-        try {
+        Utilitarios util = new Utilitarios();
+        
+        try{
             List<Funcionario> lista = new ArrayList();
 
             String sql = "select*from tb_funcionarios";
@@ -165,22 +169,24 @@ public class FuncionarioDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel listar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Erro: " + e);
 
             return null;
         }
     }
-    
-    public Funcionario consultaPorNome(String nome){
-        try {
+
+    public Funcionario consultaPorNome(String nome) {
+        Utilitarios util = new Utilitarios();
+        
+        try{
             String sql = "select*from tb_funcionarios where nome like ? limit 1";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, nome);
-            
+
             ResultSet rs = stmt.executeQuery();
             Funcionario obj = new Funcionario();
-            
-            if(rs.next()) {
+
+            if (rs.next()) {
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));
                 obj.setRg(rs.getString("rg"));
@@ -198,21 +204,24 @@ public class FuncionarioDao {
                 obj.setSenha(rs.getString("senha"));
                 obj.setNivel_acesso(rs.getString("nivel_acesso"));
                 obj.setCargo(rs.getString("cargo"));
-            }else{
-                JOptionPane.showMessageDialog(null, "Cadastro não encontrado!");
+            } else {
+                util.alert("Sistema de controle PDV - Atenção", "Cadastro não encontrado!");
             }
-            
+
             return obj;
-            
+
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar pesquisa, erro encontrado:" + e);
-            
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar pesquisa, erro encontrado:" + e);
+
             return null;
         }
     }
 
     public List<Funcionario> buscaClientePorNome(String nome) {
-        try {
+        
+        Utilitarios util = new Utilitarios();
+        
+        try{
             List<Funcionario> lista = new ArrayList();
 
             String sql = "select*from tb_funcionarios where nome like ?";
@@ -250,68 +259,74 @@ public class FuncionarioDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar pesquisa, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Erro: " + e);
 
             return null;
         }
     }
-    
-    public void efetuarLogin(String email, String senha){
-        
-        try {
+
+    public void efetuarLogin(String email, String senha) {
+
+        Utilitarios util = new Utilitarios();
+
+        try{
             String sql = "select*from tb_funcionarios where email = ? and senha =?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, email);
             stmt.setString(2, senha);
 
             ResultSet rs = stmt.executeQuery();
-            
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema");
+
+            if (rs.next()) {
+                util.alert("Sistema de controle PDV - Atenção", "Seja bem vindo ao Sistema");
+
                 FrmMenu tela = new FrmMenu();
                 tela.usuarioLogado = rs.getString("email");
                 tela.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "Dados fornecido estão incorretos, tente novamente !");
+            } else {
+                util.alert("Sistema de controle PDV - Atenção", "Dados fornecido estão incorretos, tente novamente !");
                 new FrmLogin().setVisible(true);
             }
-            
+
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e);
+            util.alert("Sistema de controle PDV - Atenção", "Erro: " + e);
         }
     }
-    
-    public void trocarSenha(String usuario, String senhaAntiga, String senhaNova, String confirmarSenha){
-        try {
+
+    public void trocarSenha(String usuario, String senhaAntiga, String senhaNova, String confirmarSenha) {
+
+        Utilitarios util = new Utilitarios();
+
+        try{
             String sql = "select*from tb_funcionarios where senha = ? and email = ?";
-            
+
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, senhaAntiga);
             stmt.setString(2, usuario);
 
             ResultSet rs = stmt.executeQuery();
-            
-            if(rs.next()){
-                if(!confirmarSenha.equals(senhaNova)){
-                    JOptionPane.showMessageDialog(null, "Senhas não confere !");
-                }else{
+
+            if (rs.next()) {
+                if (!confirmarSenha.equals(senhaNova)) {
+                    util.alert("Sistema de controle PDV - Atenção", "Senhas não confere !");
+                } else {
                     String sqlUpdate = "update tb_funcionarios set senha = ? where email = ?";
-                    
+
                     stmt = con.prepareStatement(sqlUpdate);
                     stmt.setString(1, senhaNova);
                     stmt.setString(2, usuario);
                     stmt.execute();
                     stmt.close();
 
-                    JOptionPane.showMessageDialog(null, "Senha alterada com sucesso !");
-                    
+                    util.alert("Sistema de controle PDV", "Senha alterada com sucesso !");
+
                     System.exit(0);
                 }
-            }else{
-                JOptionPane.showMessageDialog(null, "Senha antiga não confere !");
+            } else {
+                util.alert("Sistema de controle PDV", "Senha antiga não confere !");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e);
+            util.alert("Sistema de controle PDV", "Erro: " + e);
         }
     }
 

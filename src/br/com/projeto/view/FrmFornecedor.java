@@ -10,7 +10,6 @@ import br.com.projeto.dao.FornecedorDao;
 import br.com.projeto.model.Fornecedor;
 import br.com.projeto.model.Utilitarios;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -83,11 +82,11 @@ public class FrmFornecedor extends javax.swing.JFrame {
      */
     public FrmFornecedor() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH); 
-        
+        this.setExtendedState(MAXIMIZED_BOTH);
+
         Utilitarios util = new Utilitarios();
         util.InserirIcone(this);
-        
+
         //Color Btns
         util.btnColor(btnsalvar);
         util.btnColor(btnedit);
@@ -628,21 +627,20 @@ public class FrmFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtcidadeActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
+        Utilitarios util = new Utilitarios();
 
-        if (
-            txtnome.getText().isEmpty()
-            || txtcnpj.getText().isEmpty()
-            || txtemail.getText().isEmpty()
-            || txttelefone.getText().isEmpty()
-            || txtcelular.getText().isEmpty()
-            || txtendereco.getText().isEmpty()
-            || txtcep.getText().isEmpty()
-            || txtnumero.getText().isEmpty()
-            || txtcomplemento.getText().isEmpty()
-            || txtbairro.getText().isEmpty()
-            || txtcidade.getText().isEmpty()
-           ) {
-            JOptionPane.showMessageDialog(null, "Preencha do(s) campo(s) corretamente!", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+        if (txtnome.getText().isEmpty()
+                || txtcnpj.getText().isEmpty()
+                || txtemail.getText().isEmpty()
+                || txttelefone.getText().isEmpty()
+                || txtcelular.getText().isEmpty()
+                || txtendereco.getText().isEmpty()
+                || txtcep.getText().isEmpty()
+                || txtnumero.getText().isEmpty()
+                || txtcomplemento.getText().isEmpty()
+                || txtbairro.getText().isEmpty()
+                || txtcidade.getText().isEmpty()) {
+            util.alert("Sistema de controle PDV - Atenção", "Preencha do(s) campo(s) corretamente!");
         } else {
             Fornecedor obj = new Fornecedor();
 
@@ -675,9 +673,10 @@ public class FrmFornecedor extends javax.swing.JFrame {
     private void btnpesquisadadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisadadosActionPerformed
         // buscar por nome - dados pesssoais
 
+        Utilitarios util = new Utilitarios();
         try {
             if (txtnome.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Informe identificação do cadastro, para realizar pesquisa ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+                util.alert("Sistema de controle PDV - Atenção", "Informe identificação do cadastro, para realizar pesquisa ! ");
             } else {
                 String nome = "%" + txtnome.getText() + "%";
                 Fornecedor obj = new Fornecedor();
@@ -700,7 +699,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
                 txtuf.setSelectedItem(obj.getEstado());
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Cadastro do fornecedor não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção", "Cadastro do fornecedor não encontrado ! ");
         }
 
     }//GEN-LAST:event_btnpesquisadadosActionPerformed
@@ -712,11 +711,11 @@ public class FrmFornecedor extends javax.swing.JFrame {
 
     private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
         // editar
+        Utilitarios util = new Utilitarios();
 
         if (txtcodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Identificação do fornecedor não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
-        } else if (
-                txtcodigo.getText().isEmpty()
+            util.alert("Sistema de controle PDV - Atenção", "Identificação do fornecedor não encontrado ! ");
+        } else if (txtcodigo.getText().isEmpty()
                 || txtnome.getText().isEmpty()
                 || txtcnpj.getText().isEmpty()
                 || txtemail.getText().isEmpty()
@@ -728,7 +727,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
                 || txtcomplemento.getText().isEmpty()
                 || txtbairro.getText().isEmpty()
                 || txtcidade.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha do(s) campo(s) corretamente!", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção", "Preencha do(s) campo(s) corretamente!");
         } else {
             Fornecedor obj = new Fornecedor();
             obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -754,9 +753,10 @@ public class FrmFornecedor extends javax.swing.JFrame {
 
     private void btnexcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluir1ActionPerformed
         // exluir
+        Utilitarios util = new Utilitarios();
 
         if (txtcodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Identificação do fornecedor não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção", "Identificação do fornecedor não encontrado ! ");
         } else {
             Fornecedor obj = new Fornecedor();
             obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -812,6 +812,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        Utilitarios util = new Utilitarios();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {

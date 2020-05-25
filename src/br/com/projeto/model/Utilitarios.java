@@ -9,8 +9,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
@@ -20,29 +22,35 @@ import javax.swing.JTextField;
  * @author Marcos Lopes G
  */
 public class Utilitarios {
-    public void LimparTela(JPanel container){
-       Component components[] = container.getComponents();
-       for(Component component: components){
-           if(component instanceof JTextField){
-               ((JTextField) component).setText(null);
-           }
-       }    
+
+    public void LimparTela(JPanel container) {
+        Component components[] = container.getComponents();
+        for (Component component : components) {
+            if (component instanceof JTextField) {
+                ((JTextField) component).setText(null);
+            }
+        }
     }
-    
-    public void btnColor(JButton button){
+
+    public void btnColor(JButton button) {
         button.setContentAreaFilled(false);
         button.setOpaque(true);
-        button.setBackground(new Color(38,54,127));
+        button.setBackground(new Color(38, 54, 127));
         button.setForeground(Color.white);
         button.setFont(new Font("Arial", Font.PLAIN, 18));
     }
-    
-    public void InserirIcone(JFrame frm){
+
+    public void InserirIcone(JFrame frm) {
         try {
             frm.setIconImage(Toolkit.getDefaultToolkit().getImage("src/imagens/icone.png"));
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+    }
+
+    public void alert(String titulo, String message) {
+        ImageIcon icon = new ImageIcon("src/imagens/logado.png");
+        JOptionPane.showMessageDialog(null, message, titulo, JOptionPane.PLAIN_MESSAGE, icon);
     }
 
     public void btnsColor(JTabbedPane tabConsulta) {

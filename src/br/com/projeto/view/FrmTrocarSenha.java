@@ -7,27 +7,25 @@ package br.com.projeto.view;
 
 import br.com.projeto.dao.FuncionarioDao;
 import br.com.projeto.model.Utilitarios;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Marcos Lopes G
  */
 public class FrmTrocarSenha extends javax.swing.JFrame {
-    
+
     public String usuarioLogado = null;
-    
+
     /**
      * Creates new form FrmLogin
      */
     public FrmTrocarSenha() {
         initComponents();
         setLocationRelativeTo(null);
-        
+
         Utilitarios util = new Utilitarios();
         util.InserirIcone(this);
-        
+
         //Color Btns
         util.btnColor(btnsalvar);
         util.btnColor(btnsair);
@@ -198,26 +196,25 @@ public class FrmTrocarSenha extends javax.swing.JFrame {
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         // TODO add your handling code here:
         // Botão entrar
-        
+
+        Utilitarios util = new Utilitarios();
         try {
-            
+
             String senhaAntiga = String.valueOf(txtSenhaAntiga.getPassword());
-            String novaSenha =  String.valueOf(txtNovaSenha.getPassword());
+            String novaSenha = String.valueOf(txtNovaSenha.getPassword());
             String novaSenhaConf = String.valueOf(txtConfirmarSenha.getPassword());
-            
-            if(
-                senhaAntiga.isEmpty() ||
-                novaSenha.isEmpty() ||
-                novaSenhaConf.isEmpty()
-            ){
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente !");
-            }else{
+
+            if (senhaAntiga.isEmpty()
+                    || novaSenha.isEmpty()
+                    || novaSenhaConf.isEmpty()) {
+                util.alert("Sistema de controle PDV - Atenção", "Preencha todos os campos corretamente !");
+            } else {
                 FuncionarioDao dao = new FuncionarioDao();
                 dao.trocarSenha(usuarioLogado, senhaAntiga, novaSenha, novaSenhaConf);
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar login, erro interno ocorreu !");
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar login, erro interno ocorreu !");
         }
     }//GEN-LAST:event_btnsalvarActionPerformed
 
@@ -252,6 +249,7 @@ public class FrmTrocarSenha extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        Utilitarios util = new Utilitarios();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {

@@ -7,13 +7,13 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Fornecedor;
+import br.com.projeto.model.Utilitarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,6 +28,7 @@ public class FornecedorDao {
     }
 
     public void save(Fornecedor obj) {
+        Utilitarios util = new Utilitarios();
         try {
 
             String sqlExist = "select*from tb_fornecedores where cnpj = ?  limit 1";
@@ -38,7 +39,7 @@ public class FornecedorDao {
             ResultSet cadastroExist = stmtExist.executeQuery();
 
             if (cadastroExist.next()) {
-                JOptionPane.showMessageDialog(null, "Fornecedor já existe em nossa base de dados !");
+                util.alert("Sistema de controle PDV - Atenção", "Fornecedor já existe em nossa base de dados !");
             } else {
                 String sql = "insert into tb_fornecedores (nome, cnpj, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)"
                         + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -61,14 +62,15 @@ public class FornecedorDao {
                 stmt.execute();
                 stmt.close();
 
-                JOptionPane.showMessageDialog(null, "Fornecedor cadastrado com sucesso !");
+                util.alert("Sistema de controle PDV - Atenção", "Fornecedor cadastrado com sucesso !");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar cadastro, erro encontrado:" + e);
         }
     }
 
     public void edit(Fornecedor obj) {
+        Utilitarios util = new Utilitarios();
         try {
             String sql = "update tb_fornecedores set nome =?, cnpj =?, email =?, telefone =?, celular =?, "
                     + "cep =?, endereco =?, numero =?, complemento =?, bairro =?, cidade =?, estado =? where id =?";
@@ -92,14 +94,15 @@ public class FornecedorDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso !");
+            util.alert("Sistema de controle PDV - Atenção", "Cadastro alterado com sucesso !");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel alterar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel alterar cadastro, erro encontrado:" + e);
         }
     }
 
     public void delete(Fornecedor obj) {
+        Utilitarios util = new Utilitarios();
         try {
 
             String sql = "delete from tb_fornecedores where id = ?";
@@ -111,14 +114,15 @@ public class FornecedorDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Fornecedor excluido com sucesso!");
+            util.alert("Sistema de controle PDV - Atenção", "Fornecedor excluido com sucesso!");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar exclusão do cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar exclusão do cadastro, erro encontrado:" + e);
         }
     }
 
     public List<Fornecedor> listarFornecedores() {
+        Utilitarios util = new Utilitarios();
         try {
             List<Fornecedor> lista = new ArrayList();
 
@@ -150,22 +154,23 @@ public class FornecedorDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel listar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel listar cadastro, erro encontrado:" + e);
 
             return null;
         }
     }
-    
-    public Fornecedor consultaPorNome(String nome){
+
+    public Fornecedor consultaPorNome(String nome) {
+        Utilitarios util = new Utilitarios();
         try {
             String sql = "select*from tb_fornecedores where nome like ? limit 1";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, nome);
-            
+
             ResultSet rs = stmt.executeQuery();
             Fornecedor obj = new Fornecedor();
-            
-            if(rs.next()) {
+
+            if (rs.next()) {
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));
                 obj.setCnpj(rs.getString("cnpj"));
@@ -179,20 +184,21 @@ public class FornecedorDao {
                 obj.setBairro(rs.getString("bairro"));
                 obj.setCidade(rs.getString("cidade"));
                 obj.setEstado(rs.getString("estado"));
-            }else{
-                JOptionPane.showMessageDialog(null, "Fornecedor não encontrado!");
+            } else {
+                util.alert("Sistema de controle PDV - Atenção", "Fornecedor não encontrado!");
             }
-            
+
             return obj;
-            
+
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar pesquisa, erro encontrado:" + e);
-            
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar pesquisa, erro encontrado:" + e);
+
             return null;
         }
     }
 
     public List<Fornecedor> buscaFornecedorPorNome(String nome) {
+        Utilitarios util = new Utilitarios();
         try {
             List<Fornecedor> lista = new ArrayList();
 
@@ -227,7 +233,7 @@ public class FornecedorDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar pesquisa, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar pesquisa, erro encontrado:" + e);
 
             return null;
         }

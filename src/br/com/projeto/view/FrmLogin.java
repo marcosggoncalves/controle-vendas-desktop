@@ -7,7 +7,6 @@ package br.com.projeto.view;
 
 import br.com.projeto.dao.FuncionarioDao;
 import br.com.projeto.model.Utilitarios;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,10 +20,10 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         initComponents();
         setLocationRelativeTo(null);
-        
+
         Utilitarios util = new Utilitarios();
         util.InserirIcone(this);
-        
+
         //Color Btns
         util.btnColor(btnentrar);
         util.btnColor(btnsair);
@@ -144,11 +143,11 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnentrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnentrar, btnsair});
@@ -159,19 +158,21 @@ public class FrmLogin extends javax.swing.JFrame {
     private void btnentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentrarActionPerformed
         // TODO add your handling code here:
         // Botão entrar
+
+        Utilitarios util = new Utilitarios();
         
         try {
-            
+
             String email = txtemail.getText();
             String senha = String.valueOf(txtsenha.getPassword());
-            
+
             FuncionarioDao dao = new FuncionarioDao();
             dao.efetuarLogin(email, senha);
-            
+
             this.dispose();
-            
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar login, erro interno ocorreu !");
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar login, erro interno ocorreu !");
         }
     }//GEN-LAST:event_btnentrarActionPerformed
 
@@ -193,6 +194,7 @@ public class FrmLogin extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        Utilitarios util = new Utilitarios();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {

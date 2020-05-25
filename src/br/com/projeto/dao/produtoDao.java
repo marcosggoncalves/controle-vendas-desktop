@@ -8,13 +8,13 @@ package br.com.projeto.dao;
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Fornecedor;
 import br.com.projeto.model.Produto;
+import br.com.projeto.model.Utilitarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,6 +29,7 @@ public class produtoDao {
     }
 
     public void save(Produto obj) {
+        Utilitarios util = new Utilitarios();
         try {
             String sql = "insert into tb_produtos(descricao, preco, qtd_estoque, for_id) values (?,?,?,?)";
 
@@ -42,13 +43,14 @@ public class produtoDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso !");
+            util.alert("Sistema de controle PDV - Atenção", "Produto cadastrado com sucesso !");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar cadastro, erro encontrado:" + e);
         }
     }
 
     public void edit(Produto obj) {
+        Utilitarios util = new Utilitarios();
         try {
             String sql = "update tb_produtos set descricao = ?, preco = ?, qtd_estoque = ?, for_id = ? where id = ?";
 
@@ -63,13 +65,14 @@ public class produtoDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Produto alterado com sucesso !");
+            util.alert("Sistema de controle PDV - Atenção", "Produto alterado com sucesso !");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar alteração, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar alteração, erro encontrado:" + e);
         }
     }
 
     public void delete(Produto obj) {
+        Utilitarios util = new Utilitarios();
         try {
 
             String sql = "delete from tb_produtos where id = ?";
@@ -81,14 +84,15 @@ public class produtoDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Produto excluido com sucesso!");
+            util.alert("Sistema de controle PDV - Atenção", "Produto excluido com sucesso!");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar exclusão do produto, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar exclusão do produto, erro encontrado:" + e);
         }
     }
 
     public List<Produto> listarProdutos() {
+        Utilitarios util = new Utilitarios();
         try {
             List<Produto> lista = new ArrayList();
 
@@ -115,13 +119,14 @@ public class produtoDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel listar produtos, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel listar produtos, erro encontrado:" + e);
 
             return null;
         }
     }
 
     public List<Produto> buscaProdutoPorDescricao(String desc) {
+        Utilitarios util = new Utilitarios();
         try {
             List<Produto> lista = new ArrayList();
 
@@ -151,13 +156,14 @@ public class produtoDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar pesquisa, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar pesquisa, erro encontrado:" + e);
 
             return null;
         }
     }
 
     public Produto consultarPorDescricao(String desc) {
+        Utilitarios util = new Utilitarios();
         try {
 
             String sql = "select*from tb_produtos p, tb_fornecedores f where  p.for_id = f.id and p.descricao like ? limit 1";
@@ -186,7 +192,7 @@ public class produtoDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar pesquisa, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar pesquisa, erro encontrado:" + e);
 
             return null;
         }

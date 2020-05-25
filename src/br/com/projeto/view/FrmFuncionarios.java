@@ -8,7 +8,6 @@ import br.com.projeto.dao.FuncionarioDao;
 import br.com.projeto.model.Funcionario;
 import br.com.projeto.model.Utilitarios;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -711,9 +710,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     private void btnpesquisadadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisadadosActionPerformed
         // buscar por nome - dados pesssoais 
         
-        try {
+        Utilitarios util = new Utilitarios(); try{
             if (txtnome.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Informe identificação do cadastro, para realizar pesquisa ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+                util.alert("Sistema de controle PDV - Atenção", "Informe identificação do cadastro, para realizar pesquisa ! ");
             } else {
                 String nome = "%" + txtnome.getText() + "%";
                 Funcionario obj = new Funcionario();
@@ -740,7 +739,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 txtsenha1.setText(obj.getSenha());
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Cadastro do cliente não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção", "Cadastro do cliente não encontrado ! ");
         }
     }//GEN-LAST:event_btnpesquisadadosActionPerformed
 
@@ -761,7 +760,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtsenha1ActionPerformed
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
-
+        Utilitarios util = new Utilitarios();
+        
         if (txtnome.getText().isEmpty()
             || txtrg.getText().isEmpty()
             || txtcpf.getText().isEmpty()
@@ -774,7 +774,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             || txtcomplemento.getText().isEmpty()
             || txtbairro.getText().isEmpty()
             || txtcidade.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha do(s) campo(s) corretamente!", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção", "Preencha do(s) campo(s) corretamente!");
         } else {
             Funcionario obj = new Funcionario();
 
@@ -806,9 +806,10 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
         // editar
-
+        Utilitarios util = new Utilitarios();
+        
         if (txtcodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Identificação do cliente não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção", "Identificação do cliente não encontrado ! ");
         } else if (txtcodigo.getText().isEmpty()
             || txtnome.getText().isEmpty()
             || txtrg.getText().isEmpty()
@@ -822,7 +823,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             || txtcomplemento.getText().isEmpty()
             || txtbairro.getText().isEmpty()
             || txtcidade.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha do(s) campo(s) corretamente!", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção", "Preencha do(s) campo(s) corretamente!");
         } else {
             Funcionario obj = new Funcionario();
             obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -852,9 +853,10 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     private void btnexcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexcluir1ActionPerformed
         // exluir
-
+        Utilitarios util = new Utilitarios();
+        
         if (txtcodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Identificação do cliente não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção", "Identificação do cliente não encontrado ! ");
         } else {
             Funcionario obj = new Funcionario();
             obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -885,7 +887,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+        Utilitarios util = new Utilitarios(); try{
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());

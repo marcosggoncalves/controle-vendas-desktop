@@ -7,14 +7,13 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Cliente;
+import br.com.projeto.model.Utilitarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Marcos Lopes G
@@ -28,6 +27,7 @@ public class ClienteDao {
     }
 
     public void save(Cliente obj) {
+        Utilitarios util = new Utilitarios();
         try {
 
             String sqlExist = "select*from tb_clientes where cpf = ?  limit 1";
@@ -38,7 +38,7 @@ public class ClienteDao {
             ResultSet cadastroExist = stmtExist.executeQuery();
 
             if (cadastroExist.next()) {
-                JOptionPane.showMessageDialog(null, "Cadastro já existe em nossa base de dados !");
+                util.alert("Sistema de controle PDV - Atenção", "Cadastro já existe em nossa base de dados !");
             } else {
                 String sql = "insert into tb_clientes (nome, rg, cpf, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)"
                         + "values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -62,14 +62,15 @@ public class ClienteDao {
                 stmt.execute();
                 stmt.close();
 
-                JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso !");
+                util.alert("Sistema de controle PDV - Atenção", "Cadastro realizado com sucesso !");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar cadastro, erro encontrado:" + e);
         }
     }
 
     public void edit(Cliente obj) {
+        Utilitarios util = new Utilitarios();
         try {
             String sql = "update tb_clientes set nome =?, rg =?, cpf =?, email =?, telefone =?, celular =?, "
                     + "cep =?, endereco =?, numero =?, complemento =?, bairro =?, cidade =?, estado =? where id =?";
@@ -94,14 +95,15 @@ public class ClienteDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso !");
+            util.alert("Sistema de controle PDV - Atenção", "Cadastro alterado com sucesso !");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel alterar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel alterar cadastro, erro encontrado:" + e);
         }
     }
 
     public void delete(Cliente obj) {
+        Utilitarios util = new Utilitarios();
         try {
 
             String sql = "delete from tb_clientes where id = ?";
@@ -113,14 +115,15 @@ public class ClienteDao {
             stmt.execute();
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Cadastro excluido com sucesso!");
+            util.alert("Sistema de controle PDV - Atenção", "Cadastro excluido com sucesso!");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar exclusão do cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar exclusão do cadastro, erro encontrado:" + e);
         }
     }
 
     public List<Cliente> listarClientes() {
+        Utilitarios util = new Utilitarios();
         try {
             List<Cliente> lista = new ArrayList();
 
@@ -153,22 +156,23 @@ public class ClienteDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel listar cadastro, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel listar cadastro, erro encontrado:" + e);
 
             return null;
         }
     }
-    
-    public Cliente consultaPorNome(String nome){
+
+    public Cliente consultaPorNome(String nome) {
+        Utilitarios util = new Utilitarios();
         try {
             String sql = "select*from tb_clientes where nome like ? limit 1";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, nome);
-            
+
             ResultSet rs = stmt.executeQuery();
             Cliente obj = new Cliente();
-            
-            if(rs.next()) {
+
+            if (rs.next()) {
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));
                 obj.setRg(rs.getString("rg"));
@@ -183,20 +187,21 @@ public class ClienteDao {
                 obj.setBairro(rs.getString("bairro"));
                 obj.setCidade(rs.getString("cidade"));
                 obj.setEstado(rs.getString("estado"));
-            }else{
-                JOptionPane.showMessageDialog(null, "Cadastro não encontrado!");
+            } else {
+                util.alert("Sistema de controle PDV - Atenção", "Cadastro não encontrado!");
             }
-            
+
             return obj;
-            
+
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar pesquisa, erro encontrado:" + e);
-            
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar pesquisa, erro encontrado:" + e);
+
             return null;
         }
     }
 
     public List<Cliente> buscaClientePorNome(String nome) {
+        Utilitarios util = new Utilitarios();
         try {
             List<Cliente> lista = new ArrayList();
 
@@ -232,7 +237,7 @@ public class ClienteDao {
 
         } catch (SQLException e) {
 
-            JOptionPane.showMessageDialog(null, "Não foi possivel realizar pesquisa, erro encontrado:" + e);
+            util.alert("Sistema de controle PDV - Atenção", "Não foi possivel realizar pesquisa, erro encontrado:" + e);
 
             return null;
         }

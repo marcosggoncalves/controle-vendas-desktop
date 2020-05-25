@@ -11,7 +11,6 @@ import br.com.projeto.model.Fornecedor;
 import br.com.projeto.model.Produto;
 import br.com.projeto.model.Utilitarios;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -389,7 +388,7 @@ public class FrmProduto extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        produto.addTab("Consulta", tabConsulta);
+        produto.addTab("Consultar", tabConsulta);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -431,12 +430,13 @@ public class FrmProduto extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
+        Utilitarios util = new Utilitarios();
         
         if(txtQtd.getText().isEmpty() ||
            txtdesc.getText().isEmpty() ||
            txtpreco.getText().isEmpty()
         ){
-             JOptionPane.showMessageDialog(null, "Preencha do(s) campo(s) corretamente!", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção",  "Preencha do(s) campo(s) corretamente!");
         }else{
             Produto obj = new Produto();
             obj.setDescricao(txtdesc.getText());
@@ -476,9 +476,9 @@ public class FrmProduto extends javax.swing.JFrame {
     private void btnpesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarProdutoActionPerformed
         // buscar por descrição - produto
         
-         try {
+         Utilitarios util = new Utilitarios(); try{
             if (txtdesc.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Informe identificação do produto, para realizar pesquisa ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+               util.alert("Sistema de controle PDV - Atenção",  "Informe identificação do produto, para realizar pesquisa ! ");
             } else {
                 String descricao = "%" + txtdesc.getText() + "%";
                 Produto obj = new Produto();
@@ -500,17 +500,19 @@ public class FrmProduto extends javax.swing.JFrame {
                 cbFornecedor.getModel().setSelectedItem(f);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Produto não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+           util.alert("Sistema de controle PDV - Atenção",  "Produto não encontrado ! ");
         }
     }//GEN-LAST:event_btnpesquisarProdutoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
+        Utilitarios util = new Utilitarios();
+        
         if(txtQtd.getText().isEmpty() ||
            txtdesc.getText().isEmpty() ||
            txtpreco.getText().isEmpty()
         ){
-             JOptionPane.showMessageDialog(null, "Preencha do(s) campo(s) corretamente!", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+            util.alert("Sistema de controle PDV - Atenção",  "Preencha do(s) campo(s) corretamente!");
         }else{
             Produto obj = new Produto();
             obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -548,8 +550,9 @@ public class FrmProduto extends javax.swing.JFrame {
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         // TODO add your handling code here:
+        Utilitarios util = new Utilitarios();
         if (txtcodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Identificação do produto não encontrado ! ", "ATENÇÃO !", JOptionPane.PLAIN_MESSAGE);
+           util.alert("Sistema de controle PDV - Atenção",  "Identificação do produto não encontrado ! ");
         } else {
             Produto obj = new Produto();
             obj.setId(Integer.parseInt(txtcodigo.getText()));
@@ -583,7 +586,7 @@ public class FrmProduto extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+        Utilitarios util = new Utilitarios(); try{
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
