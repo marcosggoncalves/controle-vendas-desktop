@@ -19,11 +19,11 @@ import javax.swing.JOptionPane;
  *
  * @author Marcos Lopes G
  */
-public class ClientesDao {
+public class ClienteDao {
 
     private Connection con;
 
-    public ClientesDao() {
+    public ClienteDao() {
         this.con = new ConnectionFactory().getConnection();
     }
 

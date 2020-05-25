@@ -9,6 +9,7 @@ import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Funcionario;
 import br.com.projeto.view.FrmLogin;
 import br.com.projeto.view.FrmMenu;
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -278,5 +279,43 @@ public class FuncionarioDao {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
+    }
+    
+    public void trocarSenha(String usuario, String senhaAntiga, String senhaNova, String confirmarSenha){
+        try {
+            String sql = "select*from tb_funcionarios where senha = ? and email = ?";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, senhaAntiga);
+            stmt.setString(2, usuario);
+
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                if(!confirmarSenha.equals(senhaNova)){
+                    JOptionPane.showMessageDialog(null, "Senhas não confere !");
+                }else{
+                    String sqlUpdate = "update tb_funcionarios set senha = ? where email = ?";
+                    
+                    stmt = con.prepareStatement(sqlUpdate);
+                    stmt.setString(1, senhaNova);
+                    stmt.setString(2, usuario);
+                    stmt.execute();
+                    stmt.close();
+
+                    JOptionPane.showMessageDialog(null, "Senha alterada com sucesso !");
+                    
+                    System.exit(0);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Senha antiga não confere !");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e);
+        }
+    }
+
+    public void efetuarLogin(String email, char[] senha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -5,6 +5,7 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.model.Utilitarios;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.text.DateFormat;
@@ -28,6 +29,9 @@ public class FrmMenu extends javax.swing.JFrame {
     public FrmMenu() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);   
+        
+        Utilitarios util = new Utilitarios();
+        util.InserirIcone(this);
     }
     
     public String getDatetime(){ 
@@ -45,7 +49,7 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icon= new ImageIcon(getClass().getResource("/imagens/fundo_1.jpg"));
+        ImageIcon icon= new ImageIcon(getClass().getResource("/imagens/fundo.jpg"));
         Image image = icon.getImage();
         painel_desktop = new javax.swing.JDesktopPane(){
             public void paintComponent(Graphics g){
@@ -70,6 +74,8 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         menuTrocarusuario = new javax.swing.JMenu();
+        menuTrocarUsuario = new javax.swing.JMenuItem();
+        menuAlterarSenha = new javax.swing.JMenuItem();
         menuExit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,16 +89,16 @@ public class FrmMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 253));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Tela.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logado.png"))); // NOI18N
         jLabel1.setText("Usuário Logado: ");
 
         LT_usuario.setBackground(new java.awt.Color(0, 51, 153));
         LT_usuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        LT_usuario.setForeground(new java.awt.Color(61, 142, 77));
+        LT_usuario.setForeground(new java.awt.Color(38, 54, 127));
         LT_usuario.setText("Marcos Lopes");
 
         horarioLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        horarioLabel.setForeground(new java.awt.Color(61, 142, 77));
+        horarioLabel.setForeground(new java.awt.Color(38, 54, 127));
         horarioLabel.setText("Horário: 18/05/2020");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -103,10 +109,10 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LT_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LT_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addComponent(horarioLabel)
-                .addGap(135, 135, 135))
+                .addGap(85, 85, 85))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,12 +133,12 @@ public class FrmMenu extends javax.swing.JFrame {
             painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painel_desktopLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 512, Short.MAX_VALUE))
+                .addContainerGap(654, Short.MAX_VALUE))
         );
         painel_desktopLayout.setVerticalGroup(
             painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_desktopLayout.createSequentialGroup()
-                .addGap(0, 434, Short.MAX_VALUE)
+                .addGap(0, 425, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -140,8 +146,8 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1.setPreferredSize(new java.awt.Dimension(873, 70));
 
         menuClientes.setBorder(null);
-        menuClientes.setForeground(new java.awt.Color(61, 142, 77));
-        menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes.png"))); // NOI18N
+        menuClientes.setForeground(new java.awt.Color(38, 54, 127));
+        menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
         menuClientes.setText("Clientes");
         menuClientes.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         menuClientes.setIconTextGap(6);
@@ -154,8 +160,8 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1.add(menuClientes);
 
         menuFuncionarios.setBorder(null);
-        menuFuncionarios.setForeground(new java.awt.Color(61, 142, 77));
-        menuFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionarios.png"))); // NOI18N
+        menuFuncionarios.setForeground(new java.awt.Color(38, 54, 127));
+        menuFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/User_48x48.png"))); // NOI18N
         menuFuncionarios.setText("Funcionários");
         menuFuncionarios.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         menuFuncionarios.setIconTextGap(6);
@@ -168,7 +174,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1.add(menuFuncionarios);
 
         jMenu3.setBorder(null);
-        jMenu3.setForeground(new java.awt.Color(61, 142, 77));
+        jMenu3.setForeground(new java.awt.Color(38, 54, 127));
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fornecedor.png"))); // NOI18N
         jMenu3.setText("Fornecedores");
         jMenu3.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
@@ -182,7 +188,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setBorder(null);
-        jMenu4.setForeground(new java.awt.Color(61, 142, 77));
+        jMenu4.setForeground(new java.awt.Color(38, 54, 127));
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/eq.png"))); // NOI18N
         jMenu4.setText("Produtos");
         jMenu4.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
@@ -193,6 +199,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu4.add(jMenuItem4);
 
         jMenuItem5.setText("Consulta Produtos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem5);
 
         menuProdutos.setText("Produtos");
@@ -206,7 +217,7 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu7.setBorder(null);
-        jMenu7.setForeground(new java.awt.Color(61, 142, 77));
+        jMenu7.setForeground(new java.awt.Color(38, 54, 127));
         jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vd.png"))); // NOI18N
         jMenu7.setText("Vendas");
         jMenu7.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
@@ -225,9 +236,9 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu7);
 
         menuTrocarusuario.setBorder(null);
-        menuTrocarusuario.setForeground(new java.awt.Color(61, 142, 77));
-        menuTrocarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/lg.png"))); // NOI18N
-        menuTrocarusuario.setText("Trocar Usuário");
+        menuTrocarusuario.setForeground(new java.awt.Color(38, 54, 127));
+        menuTrocarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Settings_48x48.png"))); // NOI18N
+        menuTrocarusuario.setText("Configurações");
         menuTrocarusuario.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         menuTrocarusuario.setIconTextGap(6);
         menuTrocarusuario.setMargin(null);
@@ -236,11 +247,28 @@ public class FrmMenu extends javax.swing.JFrame {
                 menuTrocarusuarioMouseClicked(evt);
             }
         });
+
+        menuTrocarUsuario.setText("Trocar Usuário");
+        menuTrocarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTrocarUsuarioActionPerformed(evt);
+            }
+        });
+        menuTrocarusuario.add(menuTrocarUsuario);
+
+        menuAlterarSenha.setText("Alterar Senha");
+        menuAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAlterarSenhaActionPerformed(evt);
+            }
+        });
+        menuTrocarusuario.add(menuAlterarSenha);
+
         jMenuBar1.add(menuTrocarusuario);
 
         menuExit.setBorder(null);
-        menuExit.setForeground(new java.awt.Color(61, 142, 77));
-        menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sr.png"))); // NOI18N
+        menuExit.setForeground(new java.awt.Color(38, 54, 127));
+        menuExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Log Out_48x48.png"))); // NOI18N
         menuExit.setText("Sair");
         menuExit.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         menuExit.setIconTextGap(6);
@@ -304,8 +332,6 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void menuTrocarusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuTrocarusuarioMouseClicked
         // TODO add your handling code here:
-        new FrmLogin().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_menuTrocarusuarioMouseClicked
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
@@ -317,6 +343,23 @@ public class FrmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         new FrmProduto().setVisible(true);
     }//GEN-LAST:event_menuProdutosActionPerformed
+
+    private void menuTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTrocarUsuarioActionPerformed
+        // TODO add your handling code here:
+        new FrmLogin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuTrocarUsuarioActionPerformed
+
+    private void menuAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlterarSenhaActionPerformed
+        // TODO add your handling code here:
+        FrmTrocarSenha tela = new FrmTrocarSenha();
+        tela.usuarioLogado = usuarioLogado;
+        tela.setVisible(true);
+    }//GEN-LAST:event_menuAlterarSenhaActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,10 +410,12 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem menuAlterarSenha;
     private javax.swing.JMenu menuClientes;
     private javax.swing.JMenu menuExit;
     private javax.swing.JMenu menuFuncionarios;
     private javax.swing.JMenuItem menuProdutos;
+    private javax.swing.JMenuItem menuTrocarUsuario;
     private javax.swing.JMenu menuTrocarusuario;
     private javax.swing.JDesktopPane painel_desktop;
     // End of variables declaration//GEN-END:variables

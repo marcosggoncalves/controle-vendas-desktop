@@ -5,7 +5,7 @@
  */
 package br.com.projeto.view;
 
-import br.com.projeto.dao.ClientesDao;
+import br.com.projeto.dao.ClienteDao;
 import br.com.projeto.model.Cliente;
 import br.com.projeto.model.Utilitarios;
 import java.awt.event.KeyEvent;
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class FrmCliente extends javax.swing.JFrame {
 
     public void listar() {
-        ClientesDao dao = new ClientesDao();
+        ClienteDao dao = new ClienteDao();
         List<Cliente> lista = dao.listarClientes();
 
         DefaultTableModel dados = (DefaultTableModel) tableClientes.getModel();
@@ -54,7 +54,7 @@ public class FrmCliente extends javax.swing.JFrame {
     }
 
     private void buscarClienteNome(String nome) {
-        ClientesDao dao = new ClientesDao();
+        ClienteDao dao = new ClienteDao();
         List<Cliente> lista = dao.buscaClientePorNome(nome);
 
         DefaultTableModel dados = (DefaultTableModel) tableClientes.getModel();
@@ -86,6 +86,15 @@ public class FrmCliente extends javax.swing.JFrame {
     public FrmCliente() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH); 
+        
+        Utilitarios util = new Utilitarios();
+        util.InserirIcone(this);
+        
+        //Color Btns
+        util.btnColor(btnsalvar);
+        util.btnColor(btnedit);
+        util.btnColor(btnexcluir1);
+        util.btnColor(btnreset);
     }
 
     /**
@@ -150,9 +159,9 @@ public class FrmCliente extends javax.swing.JFrame {
             }
         });
 
-        tabDados.setBackground(new java.awt.Color(61, 142, 77));
+        tabDados.setBackground(new java.awt.Color(38, 54, 127));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 21)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Clientes");
 
@@ -161,16 +170,16 @@ public class FrmCliente extends javax.swing.JFrame {
         tabDadosLayout.setHorizontalGroup(
             tabDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabDadosLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tabDadosLayout.setVerticalGroup(
             tabDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDadosLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(25, 25, 25))
+                .addGap(27, 27, 27))
         );
 
         tabConsultas.setBackground(new java.awt.Color(255, 255, 255));
@@ -287,6 +296,7 @@ public class FrmCliente extends javax.swing.JFrame {
         jLabel15.setText("CPF:");
 
         btnpesquisadados.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        btnpesquisadados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Search_16x16.png"))); // NOI18N
         btnpesquisadados.setText("Pesquisar");
         btnpesquisadados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -372,11 +382,11 @@ public class FrmCliente extends javax.swing.JFrame {
                                                 .addComponent(txtcodigo)
                                                 .addGap(18, 18, 18)))
                                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
                                             .addGroup(dadosLayout.createSequentialGroup()
-                                                .addComponent(txtnome)
+                                                .addComponent(txtnome, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnpesquisadados, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel3)))
+                                                .addComponent(btnpesquisadados))))
                                     .addGroup(dadosLayout.createSequentialGroup()
                                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,7 +398,7 @@ public class FrmCliente extends javax.swing.JFrame {
                                                 .addGap(2, 2, 2)
                                                 .addComponent(jLabel5)
                                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                                .addGap(27, 27, 27)
+                                .addGap(10, 10, 10)
                                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -456,7 +466,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtrg, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Dados pessoais", dados);
@@ -474,6 +484,7 @@ public class FrmCliente extends javax.swing.JFrame {
         });
 
         btnConsulta.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        btnConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Search_16x16.png"))); // NOI18N
         btnConsulta.setText("Pesquisar");
         btnConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -531,15 +542,15 @@ public class FrmCliente extends javax.swing.JFrame {
             .addGroup(consultaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1279, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(consultaLayout.createSequentialGroup()
                         .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addGroup(consultaLayout.createSequentialGroup()
                                 .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(btnConsulta)))
+                        .addGap(0, 664, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         consultaLayout.setVerticalGroup(
@@ -551,14 +562,15 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Consultar", consulta);
 
         btnsalvar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Save_16x16.png"))); // NOI18N
         btnsalvar.setText("Salvar");
         btnsalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -567,6 +579,7 @@ public class FrmCliente extends javax.swing.JFrame {
         });
 
         btnedit.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Check_16x16.png"))); // NOI18N
         btnedit.setText("Editar");
         btnedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -575,6 +588,7 @@ public class FrmCliente extends javax.swing.JFrame {
         });
 
         btnreset.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnreset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel_16x16.png"))); // NOI18N
         btnreset.setText("Limpar");
         btnreset.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
         btnreset.addActionListener(new java.awt.event.ActionListener() {
@@ -584,6 +598,7 @@ public class FrmCliente extends javax.swing.JFrame {
         });
 
         btnexcluir1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnexcluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete_16x16.png"))); // NOI18N
         btnexcluir1.setText("Excluir");
         btnexcluir1.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
         btnexcluir1.addActionListener(new java.awt.event.ActionListener() {
@@ -606,7 +621,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addComponent(btnexcluir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(7, 7, 7)
                 .addComponent(btnreset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(471, 471, 471))
+                .addGap(463, 463, 463))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tabConsultas)
@@ -616,14 +631,14 @@ public class FrmCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(tabDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tabConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addComponent(tabConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnexcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnreset, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnexcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnreset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26))
         );
 
@@ -670,7 +685,7 @@ public class FrmCliente extends javax.swing.JFrame {
             obj.setCidade(txtcidade.getText());
             obj.setEstado(txtuf.getSelectedItem().toString());
 
-            ClientesDao dao = new ClientesDao();
+            ClienteDao dao = new ClienteDao();
             dao.save(obj);
 
             resetCampos();
@@ -692,7 +707,7 @@ public class FrmCliente extends javax.swing.JFrame {
             } else {
                 String nome = "%" + txtnome.getText() + "%";
                 Cliente obj = new Cliente();
-                ClientesDao dao = new ClientesDao();
+                ClienteDao dao = new ClienteDao();
 
                 obj = dao.consultaPorNome(nome);
 
@@ -758,7 +773,7 @@ public class FrmCliente extends javax.swing.JFrame {
             obj.setCidade(txtcidade.getText());
             obj.setEstado(txtuf.getSelectedItem().toString());
 
-            ClientesDao dao = new ClientesDao();
+            ClienteDao dao = new ClienteDao();
             dao.edit(obj);
 
             resetCampos();
@@ -774,7 +789,7 @@ public class FrmCliente extends javax.swing.JFrame {
             Cliente obj = new Cliente();
             obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-            ClientesDao dao = new ClientesDao();
+            ClienteDao dao = new ClienteDao();
             dao.delete(obj);
 
             resetCampos();

@@ -6,20 +6,31 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.FuncionarioDao;
+import br.com.projeto.model.Utilitarios;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Marcos Lopes G
  */
-public class FrmLogin extends javax.swing.JFrame {
-
+public class FrmTrocarSenha extends javax.swing.JFrame {
+    
+    public String usuarioLogado = null;
+    
     /**
      * Creates new form FrmLogin
      */
-    public FrmLogin() {
+    public FrmTrocarSenha() {
         initComponents();
-        setLocationRelativeTo(null);  
+        setLocationRelativeTo(null);
+        
+        Utilitarios util = new Utilitarios();
+        util.InserirIcone(this);
+        
+        //Color Btns
+        util.btnColor(btnsalvar);
+        util.btnColor(btnsair);
     }
 
     /**
@@ -32,68 +43,92 @@ public class FrmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         tabDados = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtLogin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtemail = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtsenha = new javax.swing.JPasswordField();
-        btnentrar = new javax.swing.JButton();
+        txtConfirmarSenha = new javax.swing.JPasswordField();
+        btnsalvar = new javax.swing.JButton();
         btnsair = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtNovaSenha = new javax.swing.JPasswordField();
+        txtSenhaAntiga = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login - Controle de produtos");
+        setTitle("Alterar senha - Controle produtos");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        tabDados.setBackground(new java.awt.Color(61, 142, 77));
+        tabDados.setBackground(new java.awt.Color(38, 54, 127));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Controle Produtos - PDV");
+        txtLogin.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        txtLogin.setForeground(new java.awt.Color(255, 255, 255));
+        txtLogin.setText("Trocar Senha:");
 
         javax.swing.GroupLayout tabDadosLayout = new javax.swing.GroupLayout(tabDados);
         tabDados.setLayout(tabDadosLayout);
         tabDadosLayout.setHorizontalGroup(
             tabDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabDadosLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tabDadosLayout.setVerticalGroup(
             tabDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jLabel2.setText("E-mail:");
-
-        txtemail.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel2.setText("Nova Senha:");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        jLabel3.setText("Senha:");
+        jLabel3.setText("Confirmar Senha:");
 
-        txtsenha.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-        txtsenha.addActionListener(new java.awt.event.ActionListener() {
+        txtConfirmarSenha.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtConfirmarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtsenhaActionPerformed(evt);
+                txtConfirmarSenhaActionPerformed(evt);
             }
         });
 
-        btnentrar.setText("Entrar");
-        btnentrar.addActionListener(new java.awt.event.ActionListener() {
+        btnsalvar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Check_16x16.png"))); // NOI18N
+        btnsalvar.setText("Salvar");
+        btnsalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnentrarActionPerformed(evt);
+                btnsalvarActionPerformed(evt);
             }
         });
 
-        btnsair.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        btnsair.setText("Sair");
+        btnsair.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnsair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete_16x16.png"))); // NOI18N
+        btnsair.setText("Cancelar");
         btnsair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsairActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        jLabel4.setText("Senha Atual:");
+
+        txtNovaSenha.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtNovaSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNovaSenhaActionPerformed(evt);
+            }
+        });
+
+        txtSenhaAntiga.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        txtSenhaAntiga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaAntigaActionPerformed(evt);
             }
         });
 
@@ -102,76 +137,111 @@ public class FrmLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(374, 374, 374))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(365, 365, 365))
-                    .addComponent(txtsenha)
-                    .addComponent(txtemail)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(btnentrar, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnsair, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                        .addGap(153, 153, 153)))
-                .addGap(24, 24, 24))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(365, 365, 365))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSenhaAntiga, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnsair, btnsalvar});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(tabDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 24, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSenhaAntiga, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(txtNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnentrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnsair, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnentrar, btnsair});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnsair, btnsalvar});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnentrarActionPerformed
+    private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         // TODO add your handling code here:
         // Botão entrar
         
         try {
             
-            String email = txtemail.getText();
-            String senha = txtsenha.getText();
+            String senhaAntiga = String.valueOf(txtSenhaAntiga.getPassword());
+            String novaSenha =  String.valueOf(txtNovaSenha.getPassword());
+            String novaSenhaConf = String.valueOf(txtConfirmarSenha.getPassword());
             
-            FuncionarioDao dao = new FuncionarioDao();
-            dao.efetuarLogin(email, senha);
-            
-            this.dispose();
-            
+            if(
+                senhaAntiga.isEmpty() ||
+                novaSenha.isEmpty() ||
+                novaSenhaConf.isEmpty()
+            ){
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente !");
+            }else{
+                FuncionarioDao dao = new FuncionarioDao();
+                dao.trocarSenha(usuarioLogado, senhaAntiga, novaSenha, novaSenhaConf);
+            }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Não foi possivel realizar login, erro interno ocorreu !");
         }
-    }//GEN-LAST:event_btnentrarActionPerformed
+    }//GEN-LAST:event_btnsalvarActionPerformed
 
     private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsairActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnsairActionPerformed
 
-    private void txtsenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsenhaActionPerformed
+    private void txtConfirmarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmarSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtsenhaActionPerformed
+    }//GEN-LAST:event_txtConfirmarSenhaActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        txtLogin.setText("Usuário: " + usuarioLogado);
+    }//GEN-LAST:event_formWindowActivated
+
+    private void txtNovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovaSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNovaSenhaActionPerformed
+
+    private void txtSenhaAntigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaAntigaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaAntigaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,32 +260,35 @@ public class FrmLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTrocarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTrocarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTrocarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTrocarSenha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmLogin().setVisible(true);
+                new FrmTrocarSenha().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnentrar;
     private javax.swing.JButton btnsair;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnsalvar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel tabDados;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JPasswordField txtsenha;
+    private javax.swing.JPasswordField txtConfirmarSenha;
+    private javax.swing.JLabel txtLogin;
+    private javax.swing.JPasswordField txtNovaSenha;
+    private javax.swing.JPasswordField txtSenhaAntiga;
     // End of variables declaration//GEN-END:variables
 }

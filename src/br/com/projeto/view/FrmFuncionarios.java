@@ -22,7 +22,16 @@ public class FrmFuncionarios extends javax.swing.JFrame {
      */
     public FrmFuncionarios() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH); 
+        this.setExtendedState(MAXIMIZED_BOTH);
+        
+        Utilitarios util = new Utilitarios();
+        util.InserirIcone(this);
+        
+        //Color Btns
+        util.btnColor(btnsalvar);
+        util.btnColor(btnedit);
+        util.btnColor(btnexcluir1);
+        util.btnColor(btnreset1);
     }
     
     public void listar() {
@@ -158,9 +167,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
             }
         });
 
-        tabDados2.setBackground(new java.awt.Color(61, 142, 77));
+        tabDados2.setBackground(new java.awt.Color(38, 54, 127));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 21)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Funcionários");
 
@@ -216,7 +225,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         txtemail.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        btnpesquisadados.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        btnpesquisadados.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        btnpesquisadados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Search_16x16.png"))); // NOI18N
         btnpesquisadados.setText("Pesquisar");
         btnpesquisadados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,7 +396,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtcargo)
-                                            .addComponent(txtuf, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtuf, 0, 297, Short.MAX_VALUE)
                                             .addComponent(jLabel18)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dadosLayout.createSequentialGroup()
                                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,7 +424,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                                             .addGroup(dadosLayout.createSequentialGroup()
                                                 .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnpesquisadados, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                .addComponent(btnpesquisadados))))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dadosLayout.createSequentialGroup()
                                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15)
@@ -499,7 +509,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Dados Pessoais", dados);
@@ -517,6 +527,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         });
 
         btnConsulta.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        btnConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Search_16x16.png"))); // NOI18N
         btnConsulta.setText("Pesquisar");
         btnConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -578,14 +589,15 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addGroup(consultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 113, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 33, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Consultar", consulta);
 
         btnsalvar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Save_16x16.png"))); // NOI18N
         btnsalvar.setText("Salvar");
         btnsalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -594,6 +606,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         });
 
         btnedit.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Check_16x16.png"))); // NOI18N
         btnedit.setText("Editar");
         btnedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -602,6 +615,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         });
 
         btnexcluir1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnexcluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete_16x16.png"))); // NOI18N
         btnexcluir1.setText("Excluir");
         btnexcluir1.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
         btnexcluir1.addActionListener(new java.awt.event.ActionListener() {
@@ -611,6 +625,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         });
 
         btnreset1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnreset1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel_16x16.png"))); // NOI18N
         btnreset1.setText("Limpar");
         btnreset1.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
         btnreset1.addActionListener(new java.awt.event.ActionListener() {
@@ -633,7 +648,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addComponent(btnexcluir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(7, 7, 7)
                 .addComponent(btnreset1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(503, 503, 503))
+                .addGap(495, 495, 495))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tabConsultas)
@@ -647,10 +662,10 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addComponent(tabConsultas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnexcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnreset1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnexcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnreset1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
