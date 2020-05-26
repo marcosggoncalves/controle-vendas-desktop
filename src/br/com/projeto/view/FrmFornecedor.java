@@ -9,6 +9,7 @@ package br.com.projeto.view;
 import br.com.projeto.dao.FornecedorDao;
 import br.com.projeto.model.Fornecedor;
 import br.com.projeto.model.Utilitarios;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -182,7 +183,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
         tabConsultas.setToolTipText("");
         tabConsultas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tabConsultas.setFocusable(false);
-        tabConsultas.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        tabConsultas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         dados.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -231,6 +232,11 @@ public class FrmFornecedor extends javax.swing.JFrame {
         txtcep.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtcep.setToolTipText("Pressione Enter para buscar CEP");
         txtcep.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtcep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcepActionPerformed(evt);
+            }
+        });
         txtcep.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtcepKeyPressed(evt);
@@ -440,7 +446,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
                 .addComponent(CNPJ)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtcnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Dados pessoais", dados);
@@ -537,7 +543,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
                     .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Consultar", consulta);
@@ -783,6 +789,16 @@ public class FrmFornecedor extends javax.swing.JFrame {
 
     private void txtcepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcepKeyPressed
         // TODO add your handling code here
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
+         Fornecedor obj =  new Fornecedor();
+         FornecedorDao dao = new FornecedorDao();
+         obj = dao.buscaCep(txtcep.getText());
+
+         txtendereco.setText(obj.getEndereco());
+         txtbairro.setText(obj.getBairro());
+         txtcidade.setText(obj.getCidade());
+         txtuf.setSelectedItem(obj.getEstado());                   
+     }
     }//GEN-LAST:event_txtcepKeyPressed
 
     private void tableFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableFornecedorMouseClicked
@@ -802,6 +818,10 @@ public class FrmFornecedor extends javax.swing.JFrame {
         txtcidade.setText(tableFornecedor.getValueAt(tableFornecedor.getSelectedRow(), 11).toString());
         txtuf.setSelectedItem(tableFornecedor.getValueAt(tableFornecedor.getSelectedRow(), 12).toString());
     }//GEN-LAST:event_tableFornecedorMouseClicked
+
+    private void txtcepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcepActionPerformed
 
     /**
      * @param args the command line arguments

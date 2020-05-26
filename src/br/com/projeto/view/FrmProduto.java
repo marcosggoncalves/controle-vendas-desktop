@@ -181,7 +181,8 @@ public class FrmProduto extends javax.swing.JFrame {
             }
         });
 
-        produto.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        produto.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        produto.setInheritsPopupMenu(true);
 
         tabProduto.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -298,7 +299,7 @@ public class FrmProduto extends javax.swing.JFrame {
                         .addGroup(tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         produto.addTab("Produto", tabProduto);
@@ -385,7 +386,7 @@ public class FrmProduto extends javax.swing.JFrame {
                     .addComponent(btnpesquisaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         produto.addTab("Consultar", tabConsulta);

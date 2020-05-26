@@ -7,6 +7,7 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Fornecedor;
+import br.com.projeto.model.SearchCep;
 import br.com.projeto.model.Utilitarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -237,5 +238,17 @@ public class FornecedorDao {
 
             return null;
         }
+    }
+    
+    public Fornecedor buscaCep(String cep) {
+        Utilitarios util = new Utilitarios();
+        Fornecedor obj = new Fornecedor();
+        SearchCep searchCep = new SearchCep(cep);
+        
+        obj.setEndereco(searchCep.getLogradouro());
+        obj.setCidade(searchCep.getCidade());
+        obj.setBairro(searchCep.getBairro());
+        obj.setEstado(searchCep.getEstado());
+        return obj;
     }
 }

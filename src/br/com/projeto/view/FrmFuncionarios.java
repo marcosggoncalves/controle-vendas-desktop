@@ -7,6 +7,7 @@ package br.com.projeto.view;
 import br.com.projeto.dao.FuncionarioDao;
 import br.com.projeto.model.Funcionario;
 import br.com.projeto.model.Utilitarios;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -190,7 +191,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         );
 
         tabConsultas.setBackground(new java.awt.Color(255, 255, 255));
-        tabConsultas.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        tabConsultas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tabConsultas.setInheritsPopupMenu(true);
 
         dados.setBackground(new java.awt.Color(255, 255, 255));
@@ -508,7 +509,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Dados Pessoais", dados);
@@ -590,7 +591,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                     .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         tabConsultas.addTab("Consultar", consulta);
@@ -745,6 +746,17 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
     private void txtcep2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcep2KeyPressed
         // TODO add your handling code here
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Funcionario obj = new Funcionario();
+            FuncionarioDao dao = new FuncionarioDao();
+            obj = dao.buscaCep(txtcep2.getText());
+
+            txtendereco.setText(obj.getEndereco());
+            txtbairro.setText(obj.getBairro());
+            txtcidade.setText(obj.getCidade());
+            txtuf.setSelectedItem(obj.getEstado());
+        }
     }//GEN-LAST:event_txtcep2KeyPressed
 
     private void txtenderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtenderecoActionPerformed

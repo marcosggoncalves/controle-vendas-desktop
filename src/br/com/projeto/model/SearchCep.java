@@ -64,7 +64,7 @@ public class SearchCep
     {
         try 
         {
-            URL url = new URL("https://viacep.com.br/ws/"+cep+"/xml/");
+            URL url = new URL("http://cep.republicavirtual.com.br/web_cep.php?cep=" + cep + "&formato=xml");
 
             Document document = getDocumento(url);
 

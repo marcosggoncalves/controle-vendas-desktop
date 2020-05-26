@@ -7,6 +7,7 @@ package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Funcionario;
+import br.com.projeto.model.SearchCep;
 import br.com.projeto.model.Utilitarios;
 import br.com.projeto.view.FrmLogin;
 import br.com.projeto.view.FrmMenu;
@@ -332,5 +333,17 @@ public class FuncionarioDao {
 
     public void efetuarLogin(String email, char[] senha) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Funcionario buscaCep(String cep) {
+       Utilitarios util = new Utilitarios();
+        Funcionario obj = new Funcionario();
+        SearchCep searchCep = new SearchCep(cep);
+        
+        obj.setEndereco(searchCep.getLogradouro());
+        obj.setCidade(searchCep.getCidade());
+        obj.setBairro(searchCep.getBairro());
+        obj.setEstado(searchCep.getEstado());
+        return obj;
     }
 }
