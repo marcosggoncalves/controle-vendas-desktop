@@ -240,35 +240,32 @@ public class FrmProduto extends javax.swing.JFrame {
                     .addGroup(tabProdutoLayout.createSequentialGroup()
                         .addGroup(tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(tabProdutoLayout.createSequentialGroup()
-                                .addComponent(txtdesc, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtdesc, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnpesquisarProduto)))
-                        .addContainerGap(197, Short.MAX_VALUE))
+                        .addGap(197, 197, 197))
                     .addGroup(tabProdutoLayout.createSequentialGroup()
                         .addGroup(tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tabProdutoLayout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                                .addGap(284, 284, 284))
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(288, 288, 288))
                             .addComponent(txtpreco))
                         .addGap(18, 18, 18)
                         .addGroup(tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabProdutoLayout.createSequentialGroup()
-                                .addComponent(txtQtd)
-                                .addGap(18, 18, 18))
-                            .addGroup(tabProdutoLayout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                .addGap(188, 188, 188)))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbFornecedor, 0, 278, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(tabProdutoLayout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                .addGap(215, 215, 215))
-                            .addComponent(cbFornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(94, 94, 94))))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(170, 170, 170)))
+                        .addGap(90, 90, 90))))
         );
         tabProdutoLayout.setVerticalGroup(
             tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,17 +289,17 @@ public class FrmProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtpreco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tabProdutoLayout.createSequentialGroup()
-                        .addGroup(tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                        .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tabProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(225, Short.MAX_VALUE))
+                        .addComponent(cbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabProdutoLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
-        produto.addTab("Produto", tabProduto);
+        produto.addTab("Produto", new javax.swing.ImageIcon(getClass().getResource("/imagens/Information_16x16.png")), tabProduto); // NOI18N
 
         tabConsulta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -372,7 +369,7 @@ public class FrmProduto extends javax.swing.JFrame {
                                 .addComponent(txtPesquisaTable, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnpesquisaConsulta)))
-                        .addGap(0, 413, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         tabConsultaLayout.setVerticalGroup(
@@ -385,21 +382,17 @@ public class FrmProduto extends javax.swing.JFrame {
                     .addComponent(txtPesquisaTable, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnpesquisaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
         );
 
-        produto.addTab("Consultar", tabConsulta);
+        produto.addTab("Consultar", new javax.swing.ImageIcon(getClass().getResource("/imagens/Search_16x16.png")), tabConsulta); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabDados2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(produto)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(368, 368, 368)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -410,6 +403,10 @@ public class FrmProduto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(417, 417, 417))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(produto)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,55 +453,6 @@ public class FrmProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void btnpesquisaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisaConsultaActionPerformed
-        // TODO add your handling code here:
-        String descricao = "%" + txtPesquisaTable.getText() + "%";
-        buscarProdutoDescricao(descricao);
-    }//GEN-LAST:event_btnpesquisaConsultaActionPerformed
-
-    private void cbFornecedorAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbFornecedorAncestorAdded
-        // TODO add your handling code here:
-
-        FornecedorDao dao = new FornecedorDao();
-        List<Fornecedor> getAll = dao.listarFornecedores();
-        cbFornecedor.removeAll();
-
-        getAll.forEach((f) -> {
-            cbFornecedor.addItem(f);
-        });
-    }//GEN-LAST:event_cbFornecedorAncestorAdded
-
-    private void btnpesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarProdutoActionPerformed
-        // buscar por descrição - produto
-        
-         Utilitarios util = new Utilitarios(); try{
-            if (txtdesc.getText().isEmpty()) {
-               util.alert("Sistema de controle PDV - Atenção",  "Informe identificação do produto, para realizar pesquisa ! ");
-            } else {
-                String descricao = "%" + txtdesc.getText() + "%";
-                Produto obj = new Produto();
-                produtoDao dao = new produtoDao();
-
-                obj = dao.consultarPorDescricao(descricao);
-
-                txtcodigo.setText(String.valueOf(obj.getId()));
-                
-                txtcodigo.setText(String.valueOf(obj.getId()));
-                txtdesc.setText(obj.getDescricao());
-                txtpreco.setText(String.valueOf(obj.getPreco()));
-                txtQtd.setText(String.valueOf(obj.getQtd_estoque()));
-                
-                Fornecedor f = new Fornecedor();
-                FornecedorDao fdao = new FornecedorDao();
-                
-                f = fdao.consultaPorNome(obj.getFornecedor().getNome());
-                cbFornecedor.getModel().setSelectedItem(f);
-            }
-        } catch (Exception e) {
-           util.alert("Sistema de controle PDV - Atenção",  "Produto não encontrado ! ");
-        }
-    }//GEN-LAST:event_btnpesquisarProdutoActionPerformed
-
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
         Utilitarios util = new Utilitarios();
@@ -539,16 +487,6 @@ public class FrmProduto extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowActivated
 
-    private void tableProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdutosMouseClicked
-        // TODO add your handling code here:
-        produto.setSelectedIndex(0);
-        txtcodigo.setText(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 0).toString());
-        txtdesc.setText(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 1).toString());
-        txtpreco.setText(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 2).toString());
-        txtQtd.setText(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 3).toString());
-        cbFornecedor.setSelectedItem(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 4).toString());
-    }//GEN-LAST:event_tableProdutosMouseClicked
-
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
         // TODO add your handling code here:
         Utilitarios util = new Utilitarios();
@@ -572,11 +510,70 @@ public class FrmProduto extends javax.swing.JFrame {
         resetCampos();
     }//GEN-LAST:event_btnLimparActionPerformed
 
+    private void tableProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdutosMouseClicked
+        // TODO add your handling code here:
+        produto.setSelectedIndex(0);
+        txtcodigo.setText(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 0).toString());
+        txtdesc.setText(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 1).toString());
+        txtpreco.setText(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 2).toString());
+        txtQtd.setText(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 3).toString());
+        cbFornecedor.setSelectedItem(tableProdutos.getValueAt(tableProdutos.getSelectedRow(), 4).toString());
+    }//GEN-LAST:event_tableProdutosMouseClicked
+
     private void txtPesquisaTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaTableKeyPressed
         // TODO add your handling code here:
         String descricao = "%" + txtPesquisaTable.getText() + "%";
         buscarProdutoDescricao(descricao);
     }//GEN-LAST:event_txtPesquisaTableKeyPressed
+
+    private void btnpesquisaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisaConsultaActionPerformed
+        // TODO add your handling code here:
+        String descricao = "%" + txtPesquisaTable.getText() + "%";
+        buscarProdutoDescricao(descricao);
+    }//GEN-LAST:event_btnpesquisaConsultaActionPerformed
+
+    private void cbFornecedorAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbFornecedorAncestorAdded
+        // TODO add your handling code here:
+
+        FornecedorDao dao = new FornecedorDao();
+        List<Fornecedor> getAll = dao.listarFornecedores();
+        cbFornecedor.removeAll();
+
+        getAll.forEach((f) -> {
+            cbFornecedor.addItem(f);
+        });
+    }//GEN-LAST:event_cbFornecedorAncestorAdded
+
+    private void btnpesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarProdutoActionPerformed
+        // buscar por descrição - produto
+
+        Utilitarios util = new Utilitarios(); try{
+            if (txtdesc.getText().isEmpty()) {
+                util.alert("Sistema de controle PDV - Atenção",  "Informe identificação do produto, para realizar pesquisa ! ");
+            } else {
+                String descricao = "%" + txtdesc.getText() + "%";
+                Produto obj = new Produto();
+                produtoDao dao = new produtoDao();
+
+                obj = dao.consultarPorDescricao(descricao);
+
+                txtcodigo.setText(String.valueOf(obj.getId()));
+
+                txtcodigo.setText(String.valueOf(obj.getId()));
+                txtdesc.setText(obj.getDescricao());
+                txtpreco.setText(String.valueOf(obj.getPreco()));
+                txtQtd.setText(String.valueOf(obj.getQtd_estoque()));
+
+                Fornecedor f = new Fornecedor();
+                FornecedorDao fdao = new FornecedorDao();
+
+                f = fdao.consultaPorNome(obj.getFornecedor().getNome());
+                cbFornecedor.getModel().setSelectedItem(f);
+            }
+        } catch (Exception e) {
+            util.alert("Sistema de controle PDV - Atenção",  "Produto não encontrado ! ");
+        }
+    }//GEN-LAST:event_btnpesquisarProdutoActionPerformed
 
     /**
      * @param args the command line arguments

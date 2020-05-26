@@ -338,6 +338,8 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         txtNivel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuário", "Administrador" }));
 
+        txtnumero.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+
         javax.swing.GroupLayout dadosLayout = new javax.swing.GroupLayout(dados);
         dados.setLayout(dadosLayout);
         dadosLayout.setHorizontalGroup(
@@ -512,7 +514,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                 .addContainerGap(99, Short.MAX_VALUE))
         );
 
-        tabConsultas.addTab("Dados Pessoais", dados);
+        tabConsultas.addTab("Dados Pessoais", new javax.swing.ImageIcon(getClass().getResource("/imagens/Information_16x16.png")), dados); // NOI18N
 
         consulta.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -590,11 +592,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
                     .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
 
-        tabConsultas.addTab("Consultar", consulta);
+        tabConsultas.addTab("Consultar", new javax.swing.ImageIcon(getClass().getResource("/imagens/Search_16x16.png")), consulta); // NOI18N
 
         btnsalvar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Save_16x16.png"))); // NOI18N
