@@ -152,6 +152,7 @@ public class FrmMenu extends javax.swing.JFrame {
         menuClientes.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
         menuClientes.setIconTextGap(6);
         menuClientes.setMargin(null);
+        menuClientes.setRequestFocusEnabled(false);
         menuClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuClientesMouseClicked(evt);

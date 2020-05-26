@@ -627,7 +627,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGap(463, 463, 463))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 1410, Short.MAX_VALUE)
+                .addComponent(tabConsultas)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
