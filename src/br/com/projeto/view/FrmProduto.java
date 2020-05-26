@@ -34,6 +34,9 @@ public class FrmProduto extends javax.swing.JFrame {
         util.btnColor(btnEditar);
         util.btnColor(btnDeletar);
         util.btnColor(btnLimpar);
+        
+        // Header Tabela tamanho da fonte
+        util.StyleHeaderTable(tableProdutos);
     }
     
     private void resetCampos() {

@@ -16,12 +16,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
 
 /**
  *
  * @author Marcos Lopes G
  */
 public class Utilitarios {
+    
+    private Color colorPrincipal = new Color(38, 54, 127);
 
     public void LimparTela(JPanel container) {
         Component components[] = container.getComponents();
@@ -31,11 +35,19 @@ public class Utilitarios {
             }
         }
     }
+    
+    public void StyleHeaderTable (JTable table){
+        JTableHeader Theader = table.getTableHeader();
+        Theader.setOpaque(false);
+        Theader.setBackground(colorPrincipal); 
+        Theader.setForeground(Color.white);
+        Theader.setFont(new Font("Arial", Font.BOLD, 16)); 
+    }
 
     public void btnColor(JButton button) {
         button.setContentAreaFilled(false);
         button.setOpaque(true);
-        button.setBackground(new Color(38, 54, 127));
+        button.setBackground(colorPrincipal);
         button.setForeground(Color.white);
         button.setFont(new Font("Arial", Font.PLAIN, 18));
     }

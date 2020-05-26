@@ -93,6 +93,9 @@ public class FrmFornecedor extends javax.swing.JFrame {
         util.btnColor(btnedit);
         util.btnColor(btnexcluir1);
         util.btnColor(btnreset);
+        
+        // Header Tabela tamanho da fonte
+        util.StyleHeaderTable(tableFornecedor);
     }
 
     /**

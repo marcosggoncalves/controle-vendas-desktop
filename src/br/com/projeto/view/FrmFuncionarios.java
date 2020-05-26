@@ -32,6 +32,9 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         util.btnColor(btnedit);
         util.btnColor(btnexcluir1);
         util.btnColor(btnreset1);
+        
+        // Header Tabela tamanho da fonte
+        util.StyleHeaderTable(tableClientes);
     }
     
     public void listar() {
