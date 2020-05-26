@@ -329,7 +329,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dadosLayout.createSequentialGroup()
                         .addComponent(jLabel15)
-                        .addContainerGap(1241, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(dadosLayout.createSequentialGroup()
                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(dadosLayout.createSequentialGroup()
@@ -372,7 +372,7 @@ public class FrmCliente extends javax.swing.JFrame {
                                                 .addComponent(jLabel13)))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dadosLayout.createSequentialGroup()
-                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(dadosLayout.createSequentialGroup()
                                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(dadosLayout.createSequentialGroup()
@@ -384,10 +384,11 @@ public class FrmCliente extends javax.swing.JFrame {
                                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3)
                                             .addGroup(dadosLayout.createSequentialGroup()
-                                                .addComponent(txtnome, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                                                .addComponent(txtnome, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnpesquisadados))))
-                                    .addGroup(dadosLayout.createSequentialGroup()
+                                                .addComponent(btnpesquisadados)))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dadosLayout.createSequentialGroup()
                                         .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel4))
@@ -398,10 +399,10 @@ public class FrmCliente extends javax.swing.JFrame {
                                                 .addGap(2, 2, 2)
                                                 .addComponent(jLabel5)
                                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                                .addGap(10, 10, 10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txttelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))))
                         .addGap(24, 24, 24))))
         );
         dadosLayout.setVerticalGroup(
@@ -466,7 +467,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGroup(dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcpf, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtrg, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         dadosLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnpesquisadados, jLabel10, jLabel11, jLabel12, jLabel13, jLabel14, jLabel15, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9, txtbairro, txtcelular, txtcep, txtcidade, txtcodigo, txtcomplemento, txtcpf, txtemail, txtendereco, txtnome, txtnumero, txtrg, txttelefone, txtuf});
@@ -552,7 +553,7 @@ public class FrmCliente extends javax.swing.JFrame {
                                 .addComponent(txtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnConsulta)))
-                        .addGap(0, 664, Short.MAX_VALUE)))
+                        .addGap(0, 766, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         consultaLayout.setVerticalGroup(
@@ -626,7 +627,7 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addGap(463, 463, 463))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabConsultas)
+                .addComponent(tabConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 1410, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
