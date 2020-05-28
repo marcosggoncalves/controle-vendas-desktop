@@ -6,7 +6,7 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.FornecedorDao;
-import br.com.projeto.dao.produtoDao;
+import br.com.projeto.dao.ProdutoDao;
 import br.com.projeto.model.Fornecedor;
 import br.com.projeto.model.Produto;
 import br.com.projeto.model.Utilitarios;
@@ -47,7 +47,7 @@ public class FrmProduto extends javax.swing.JFrame {
     }
     
     private void buscarProdutoDescricao(String desc) {
-        produtoDao dao = new produtoDao();
+        ProdutoDao dao = new ProdutoDao();
         List<Produto> lista = dao.buscaProdutoPorDescricao(desc);
 
         DefaultTableModel dados = (DefaultTableModel) tableProdutos.getModel();
@@ -65,7 +65,7 @@ public class FrmProduto extends javax.swing.JFrame {
     }
     
     public void listar() {
-        produtoDao dao = new produtoDao();
+        ProdutoDao dao = new ProdutoDao();
         List<Produto> lista = dao.listarProdutos();
 
         DefaultTableModel dados = (DefaultTableModel) tableProdutos.getModel();
@@ -448,7 +448,7 @@ public class FrmProduto extends javax.swing.JFrame {
             f = (Fornecedor) cbFornecedor.getSelectedItem();
             obj.setFornecedor(f);
 
-            produtoDao dao = new produtoDao();
+            ProdutoDao dao = new ProdutoDao();
             dao.save(obj);
 
             resetCampos();
@@ -476,7 +476,7 @@ public class FrmProduto extends javax.swing.JFrame {
             f = (Fornecedor) cbFornecedor.getSelectedItem();
             obj.setFornecedor(f);
 
-            produtoDao dao = new produtoDao();
+            ProdutoDao dao = new ProdutoDao();
             dao.edit(obj);
 
             resetCampos();
@@ -499,7 +499,7 @@ public class FrmProduto extends javax.swing.JFrame {
             Produto obj = new Produto();
             obj.setId(Integer.parseInt(txtcodigo.getText()));
 
-            produtoDao dao = new produtoDao();
+            ProdutoDao dao = new ProdutoDao();
             dao.delete(obj);
             
             produto.setSelectedIndex(1);
@@ -556,7 +556,7 @@ public class FrmProduto extends javax.swing.JFrame {
             } else {
                 String descricao = "%" + txtdesc.getText() + "%";
                 Produto obj = new Produto();
-                produtoDao dao = new produtoDao();
+                ProdutoDao dao = new ProdutoDao();
 
                 obj = dao.consultarPorDescricao(descricao);
 

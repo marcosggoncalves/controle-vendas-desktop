@@ -102,5 +102,18 @@ CREATE TABLE tb_itensvendas (
 );
 /*****************/
 
+/***** TABELA Emails *****/
+
+CREATE TABLE tb_emais_envio (
+	id int auto_increment primary key,
+	nome_destino varchar(255),
+	email_destino varchar(255),
+	titulo_assunto varchar(255),
+	assunto text,
+	tipo_cadastro varchar(255)
+);
+
+/*****************/
+
 
 select * from tb_clientes where nome like 'a%';

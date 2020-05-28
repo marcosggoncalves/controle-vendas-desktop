@@ -20,11 +20,11 @@ import java.util.List;
  *
  * @author Marcos Lopes G
  */
-public class produtoDao {
+public class ProdutoDao {
 
     private Connection con;
 
-    public produtoDao() {
+    public ProdutoDao() {
         this.con = new ConnectionFactory().getConnection();
     }
 

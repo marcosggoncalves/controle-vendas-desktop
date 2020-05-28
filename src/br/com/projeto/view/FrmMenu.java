@@ -73,6 +73,8 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        menuEmail = new javax.swing.JMenu();
+        menuEnviarEmail = new javax.swing.JMenuItem();
         menuTrocarusuario = new javax.swing.JMenu();
         menuTrocarUsuario = new javax.swing.JMenuItem();
         menuAlterarSenha = new javax.swing.JMenuItem();
@@ -236,6 +238,21 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
+        menuEmail.setBorder(null);
+        menuEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Send_48x48.png"))); // NOI18N
+        menuEmail.setText("E-mail");
+        menuEmail.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
+
+        menuEnviarEmail.setText("Enviar e-mail");
+        menuEnviarEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEnviarEmailActionPerformed(evt);
+            }
+        });
+        menuEmail.add(menuEnviarEmail);
+
+        jMenuBar1.add(menuEmail);
+
         menuTrocarusuario.setBorder(null);
         menuTrocarusuario.setForeground(new java.awt.Color(38, 54, 127));
         menuTrocarusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Settings_48x48.png"))); // NOI18N
@@ -362,6 +379,11 @@ public class FrmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void menuEnviarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEnviarEmailActionPerformed
+        // TODO add your handling code here:
+        new FrmEmail().setVisible(true);
+    }//GEN-LAST:event_menuEnviarEmailActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -413,6 +435,8 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem menuAlterarSenha;
     private javax.swing.JMenu menuClientes;
+    private javax.swing.JMenu menuEmail;
+    private javax.swing.JMenuItem menuEnviarEmail;
     private javax.swing.JMenu menuExit;
     private javax.swing.JMenu menuFuncionarios;
     private javax.swing.JMenuItem menuProdutos;
