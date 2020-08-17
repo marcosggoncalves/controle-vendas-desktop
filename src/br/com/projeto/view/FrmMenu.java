@@ -69,10 +69,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         menuProdutos = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         menuEmail = new javax.swing.JMenu();
         menuEnviarEmail = new javax.swing.JMenuItem();
         menuTrocarusuario = new javax.swing.JMenu();
@@ -218,25 +214,6 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu4.add(menuProdutos);
 
         jMenuBar1.add(jMenu4);
-
-        jMenu7.setBorder(null);
-        jMenu7.setForeground(new java.awt.Color(38, 54, 127));
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vd.png"))); // NOI18N
-        jMenu7.setText("Vendas");
-        jMenu7.setFont(new java.awt.Font("Arial", 0, 17)); // NOI18N
-        jMenu7.setIconTextGap(6);
-        jMenu7.setMargin(null);
-
-        jMenuItem7.setText("Abrir PDV");
-        jMenu7.add(jMenuItem7);
-
-        jMenuItem8.setText("Posição do dia");
-        jMenu7.add(jMenuItem8);
-
-        jMenuItem9.setText("Histórico de Vendas");
-        jMenu7.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu7);
 
         menuEmail.setBorder(null);
         menuEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Send_48x48.png"))); // NOI18N
@@ -425,13 +402,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem menuAlterarSenha;
     private javax.swing.JMenu menuClientes;

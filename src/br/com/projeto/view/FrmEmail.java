@@ -7,16 +7,19 @@ package br.com.projeto.view;
 
 import br.com.projeto.dao.EmailDao;
 import br.com.projeto.model.Cliente;
+import br.com.projeto.model.Email;
 import br.com.projeto.model.Fornecedor;
 import br.com.projeto.model.Funcionario;
 import br.com.projeto.model.Utilitarios;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Marcos Lopes G
  */
 public class FrmEmail extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form FrmEmail
      */
@@ -36,10 +39,29 @@ public class FrmEmail extends javax.swing.JFrame {
         //Header Table
         util.StyleHeaderTable(tablesEmails);
     }
+    
+    public void listar() {
+        EmailDao dao = new EmailDao();
+        List<Email> lista = dao.listarEmails();
 
+        DefaultTableModel dados = (DefaultTableModel) tablesEmails.getModel();
+        dados.setNumRows(0);
+
+        for (Email c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getEmail(),
+                c.getTitulo(),
+                c.getTipo()
+            });
+        }
+    }
+    
     private void resetCampos() {
         // Limpar campos
         new Utilitarios().LimparTela(painelEmail);
+        txtAssunto.setText("");
+        
         // tabConsultas.setSelectedIndex(0);
     }
 
@@ -75,6 +97,11 @@ public class FrmEmail extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Envio - Email");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         tabDados.setBackground(new java.awt.Color(38, 54, 127));
 
@@ -234,6 +261,7 @@ public class FrmEmail extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        tablesEmails.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         tablesEmails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -291,6 +319,7 @@ public class FrmEmail extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         Utilitarios util = new Utilitarios();
+        EmailDao dao = new EmailDao();
 
         if (
             txtEmail.getText().isEmpty()
@@ -300,7 +329,16 @@ public class FrmEmail extends javax.swing.JFrame {
             ) {
             util.alert("Sistema de controle PDV - Atenção", "Preencha do(s) campo(s) corretamente!");
         } else {
-
+            Email obj = new Email();
+            obj.setEmail(txtEmail.getText());
+            obj.setAssunto(txtAssunto.getText());
+            obj.setNome(txtNome.getText());
+            obj.setTipo(cbTipo.getSelectedItem().toString());
+            obj.setTitulo(txtTitulo.getText());
+            
+            dao.Save(obj);
+            
+            resetCampos();
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -344,6 +382,11 @@ public class FrmEmail extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        listar();
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -383,7 +426,6 @@ public class FrmEmail extends javax.swing.JFrame {
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JButton btnentrar;
     private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
